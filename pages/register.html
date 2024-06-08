@@ -1,123 +1,174 @@
-<!DOCTYPE html>
-<html lang="zh">
+---
+layout: default
+title: 註冊
+permalink: /register
+---
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REGISTER</title>
+<style>
+    /* 基本樣式設定 */
+.container {
+    max-width: 800px;
+    margin: auto;
+}
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/4.2.6/jquery.flot.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.box_tab-link {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid transparent;
+}
+
+.box_tab-link.active {
+    border-bottom: 2px solid #800000;
+    color: #800000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 
 
-</head>
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 
-<body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-8">
-                <div id="chart_div"></div>
-                <script type="text/javascript">
-                    google.charts.load('current', { 'packages': ['line'] });
-                    google.charts.setOnLoadCallback(drawChart);
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-                    function drawChart() {
+.form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-                        var data = new google.visualization.DataTable();
-                        data.addColumn('number', 'Day');
-                        data.addColumn('number', 'product A');
-                        data.addColumn('number', 'product B');
+.form-button:hover {
+    background-color: #333;
+}
 
+</style>
 
-
-                        data.addRows([
-                            [1, 37.8, 80.8],
-                            [2, 30.9, 69.5],
-                            [3, 25.4, 57],
-                            [4, 11.7, 18.8],
-                            [5, 11.9, 17.6],
-                            [6, 8.8, 13.6],
-                            [7, 7.6, 12.3],
-                            [8, 12.3, 29.2],
-                            [9, 16.9, 42.9],
-                            [10, 12.8, 30.9],
-                            [11, 5.3, 7.9],
-                            [12, 6.6, 8.4],
-
-                        ]);
-
-                        var options = {
-                            chart: {
-                                title: 'Box Office Earnings in First Two Weeks of Opening',
-                                subtitle: 'in millions of dollars (USD)'
-                            },
-                            width: 900,
-                            height: 500,
-                            axes: {
-                                x: {
-                                    0: { side: 'top' }
-                                }
-                            }
-                        };
-
-                        var chart = new google.charts.Line(document.getElementById('line_top_x'));
-
-                        chart.draw(data, google.charts.Line.convertOptions(options));
-                    }
-                </script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div id="chart_div" style="width: 100%; height: 100vh;"></div>
+        </div>
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <div class="form-container">
+                <div class="form-header">
+                    <a href="javascript:void(0)" class="box_tab-link active" onclick="openTab(event, 'login')">登入</a>
+                    <a href="javascript:void(0)" class="box_tab-link" onclick="openTab(event, 'register')">註冊</a>
+                </div>
+                <div id="login" class="tab-content active">
+                    <form action="/login" method="post">
+                        <label for="login-email">* 電子郵件</label>
+                        <input type="email" id="login-email" name="email" placeholder="username@domainname.com" required><br><br>
+                        <label for="login-password">* 密碼</label>
+                        <input type="password" id="login-password" name="password" required><br><br>
+                        <div class="form-options">
+                            <label for="remember-me">
+                                <input type="checkbox" id="remember-me" name="remember-me"> 保持登入狀態
+                            </label><br><br>
+                            <a href="#" class="forgot-password">忘記密碼？</a>
+                        </div>
+                        <button type="submit" class="form-button">登入</button>
+                    </form>
+                </div>
+                <div id="register" class="tab-content">
+                    <form action="/register" method="post">
+                        <label for="reg-email">* 電子郵件</label>
+                        <input type="email" id="reg-email" name="email" placeholder="username@domainname.com" required><br><br>
+                        <label for="reg-password">* 密碼</label>
+                        <input type="password" id="reg-password" name="password" required><br><br>
+                        <label for="confirm-password">* 確認密碼</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+                        <button type="submit" class="form-button">註冊</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="col-md-4">
-        <form action="/register" method="post">
-            <fieldset>
-                <legend>基本資訊</legend>
-                <label for="username">用戶名:</label>
-                <input type="text" id="username" name="username"><br><br>
-                <label for="email">電子郵件:</label>
-                <input type="email" id="email" name="email"><br><br>
-            </fieldset>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['line'] });
+    google.charts.setOnLoadCallback(drawChart);
 
-            <fieldset>
-                <legend>密碼設定</legend>
-                <label for="password">密碼:</label>
-                <input type="password" id="password" name="password"><br><br>
-                <label for="confirm_password">確認密碼:</label>
-                <input type="password" id="confirm_password" name="confirm_password"><br><br>
-            </fieldset>
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Day');
+        data.addColumn('number', 'product A');
+        data.addColumn('number', 'product B');
 
-            <input type="submit" value="註冊">
-        </form>
+        data.addRows([
+            [1, 37.8, 80.8],
+            [2, 30.9, 69.5],
+            [3, 25.4, 57],
+            [4, 11.7, 18.8],
+            [5, 11.9, 17.6],
+            [6, 8.8, 13.6],
+            [7, 7.6, 12.3],
+            [8, 12.3, 29.2],
+            [9, 16.9, 42.9],
+            [10, 12.8, 30.9],
+            [11, 5.3, 7.9],
+            [12, 6.6, 8.4],
+        ]);
 
-    </div>
-    <div class="login-container">
-        <form action="/login" method="post">
-            <fieldset>
-                <legend>登入</legend>
-                <label for="username">帳號 *</label>
-                <input type="text" id="username" name="username" required>
-                <br><br>
-                <label for="password">密碼 *</label>
-                <input type="password" id="password" name="password" required>
-                <br><br>
-                <label for="remember-me">
-                    <input type="checkbox" id="remember-me" name="remember-me"> 記得我
-                </label>
-                <br><br>
-                <button type="submit" class="login-button">登入</button>
-            </fieldset>
-        </form>
-        <div class="forgot-links">
-            <a href="#">忘記你的密碼？</a><br>
-            <a href="#">忘記你的帳號？</a>
-        </div>
-    </div>
+        var options = {
+            chart: {
+                title: 'Box Office Earnings in First Two Weeks of Opening',
+                subtitle: 'in millions of dollars (USD)'
+            },
+            axes: {
+                x: {
+                    0: { side: 'top' }
+                }
+            }
+        };
 
-    <div id="line_top_x"></div>
+        var chart = new google.charts.Line(document.getElementById('chart_div'));
 
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
 
-</body>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("box_tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
 
-</html>
+    // 預設顯示登入頁
+    document.getElementById("login").style.display = "block";
+</script>
