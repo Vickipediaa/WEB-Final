@@ -5,46 +5,28 @@ permalink: /reservation/
 ---
 
 
-<div class="container">
-    <div class="row mt-4">
+<div class="container"style="margin:5%">
+    <div class="row">
 
         <div class="col">
-            <center><img
+            <center><img style="width: 75%;"
                     src="https://vir.nstc.gov.tw/Home/GetFile?filepath=upload/91d2a48144714aa49e4127f1867aec25.PNG">
+                <h3>name</h3>
                 <h3>intro</h3>
                 <p>介紹</p>
-                <h3>name</h3>
+                
             </center>
         </div>
 
-
-        <div class="col" id="calendar">
-            
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const calendar = document.getElementById("calendar");
-
-                    const daysInMonth = (month, year) => new Date(year, month, 0).getDate();
-
-                    const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-11
-                    const currentYear = new Date().getFullYear();
-                    const days = daysInMonth(currentMonth, currentYear);
-
-                    for (let day = 1; day <= days; day++) {
-                        const dayElement = document.createElement("div");
-                        dayElement.classList.add("day");
-                        dayElement.textContent = day;
-                        dayElement.addEventListener("click", () => toggleBooking(dayElement));
-                        calendar.appendChild(dayElement);
-                    }
-
-                    function toggleBooking(element) {
-                        element.classList.toggle("booked");
-                    }
-                });
-
-            </script>
-
+        <div class="col" >
+            <div id="calendar-container">
+                <div id="calendar"></div>
+            </div>
         </div>
+        
+
     </div>
 </div>
+
+
+
