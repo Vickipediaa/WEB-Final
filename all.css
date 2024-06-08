@@ -1,64 +1,84 @@
 /*reservation*/
 .f{
-    display: grid;
-    grid-template-columns: 1fr,1fr;
+  display: grid;
+  grid-template-columns: 1fr,1fr;
 }
 
 .left{
-  margin: 10%;
-  width: 100;
+margin: 10%;
+width: 100;
 }
 
+/* index的 */
+.text-center {
+  text-align: center;
+}
 
-  /* index的 */
-  .text-center {
-    text-align: center;
-  }
-  
-  .img-fluid {
-    width: 200px; /* 設置圖片的固定寬度 */
-    height: 200px; /* 設置圖片的固定高度 */
-    object-fit: contain; /* 確保圖片按照比例填滿寬高，並且不會變形 */
-  }
-  
-  .col-style {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 16px; /* 等價於 Bootstrap 的 mb-4 */
-  }
-  
-  
-  /*日曆*/
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+.img-fluid {
+  width: 200px; /* 設置圖片的固定寬度 */
+  height: 200px; /* 設置圖片的固定高度 */
+  object-fit: contain; /* 確保圖片按照比例填滿寬高，並且不會變形 */
+}
+
+.col-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px; /* 等價於 Bootstrap 的 mb-4 */
+}
+
+/*calendar*/
+/* #calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
 
 #calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    max-width: 400px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 400px;
 }
 
 .day {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-    cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
 }
 
 .day.booked {
-    background-color: #f0a;
-    color: white;
+  background-color: rgb(212, 116, 180);
+  color: white;
 }
 
 .day:hover {
-    background-color: #ddd;
+  background-color: #ddd;
+} */
+
+
+
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
+.form-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-button:hover {
+  background-color: #333;
+}
