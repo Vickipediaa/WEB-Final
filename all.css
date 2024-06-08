@@ -10,6 +10,7 @@
 }
 
 
+<<<<<<< HEAD
   /* index的 */
   .text-center {
     text-align: center;
@@ -62,3 +63,80 @@
     background-color: #ddd;
 }
 
+=======
+/* 基本樣式設定 */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+  height: 100%;
+  padding: 0;
+}
+
+#chart_div {
+  height: 100vh;
+  width: 100%;
+}
+
+.form-container {
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.box_tab-link {
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+}
+
+.box_tab-link.active {
+  border-bottom: 2px solid #800000;
+  color: #800000;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-button:hover {
+  background-color: #333;
+}
+>>>>>>> 9db8702bea30258d9912c4d2800df2fc6fd5d564
