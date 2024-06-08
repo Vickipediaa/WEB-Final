@@ -7,6 +7,7 @@ permalink: /reservation/
 
 <div class="container">
     <div class="row mt-4">
+
         <div class="col">
             <center><img
                     src="https://vir.nstc.gov.tw/Home/GetFile?filepath=upload/91d2a48144714aa49e4127f1867aec25.PNG">
@@ -15,38 +16,35 @@ permalink: /reservation/
                 <h3>name</h3>
             </center>
         </div>
-        <div class="col">
-            <div id="demo-booking-multiple"></div>
-            <link href="https://github.com/simpletut/reactjs-availability-calendar.git">
-            <script>
-                mobiscroll.datepicker('#demo-booking-multiple', {
-                    controls: ['calendar', 'timegrid'],
-                    min: '2024-06-08T00:00',
-                    max: '2024-12-08T00:00',
-                    minTime: '08:00',
-                    maxTime: '19:59',
-                    stepMinute: 60,
-                    // example for today's labels and invalids
-                    labels: [{
-                        start: '2024-06-08',
-                        textColor: '#e1528f',
-                        title: '3 SPOTS'
-                    }],
-                    invalid: [{
-                        start: '2024-06-08T08:00',
-                        end: '2024-06-08T13:00'
-                    }, {
-                        start: '2024-06-08T15:00',
-                        end: '2024-06-08T17:00'
-                    }, {
-                        start: '2024-06-08T19:00',
-                        end: '2024-06-08T20:00'
-                    }]
-                });
-            </script>
+
+
+        <div class="col" id="calendar">
             
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const calendar = document.getElementById("calendar");
+
+                    const daysInMonth = (month, year) => new Date(year, month, 0).getDate();
+
+                    const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-11
+                    const currentYear = new Date().getFullYear();
+                    const days = daysInMonth(currentMonth, currentYear);
+
+                    for (let day = 1; day <= days; day++) {
+                        const dayElement = document.createElement("div");
+                        dayElement.classList.add("day");
+                        dayElement.textContent = day;
+                        dayElement.addEventListener("click", () => toggleBooking(dayElement));
+                        calendar.appendChild(dayElement);
+                    }
+
+                    function toggleBooking(element) {
+                        element.classList.toggle("booked");
+                    }
+                });
+
+            </script>
+
         </div>
     </div>
 </div>
-</div>
-
