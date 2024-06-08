@@ -1,6 +1,12 @@
+/*reservation*/
 .f{
     display: grid;
     grid-template-columns: 1fr,1fr;
+}
+
+.left{
+  margin: 10%;
+  width: 100;
 }
 
 
@@ -42,4 +48,36 @@
   
   
   
-  
+  /*日曆*/
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 400px;
+}
+
+.day {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+}
+
+.day.booked {
+    background-color: #f0a;
+    color: white;
+}
+
+.day:hover {
+    background-color: #ddd;
+}
+
