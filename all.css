@@ -10,7 +10,6 @@
 }
 
 
-<<<<<<< HEAD
   /* index的 */
   .text-center {
     text-align: center;
@@ -30,14 +29,12 @@
   }
   
   
-  /*日曆*/
-  body {
-    font-family: Arial, sans-serif;
+  /*calendar*/
+  #calendar-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    margin: 20px;
 }
 
 #calendar {
@@ -63,7 +60,7 @@
     background-color: #ddd;
 }
 
-=======
+
 /* 基本樣式設定 */
 body, html {
   height: 100%;
@@ -139,4 +136,3 @@ body, html {
 .form-button:hover {
   background-color: #333;
 }
->>>>>>> 9db8702bea30258d9912c4d2800df2fc6fd5d564
