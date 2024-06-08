@@ -2,3 +2,25 @@
     display: grid;
     grid-template-columns: 1fr,1fr;
 }
+
+
+  /* index的 */
+  .text-center {
+    text-align: center;
+  }
+  
+  .img-fluid {
+    width: 200px; /* 設置圖片的固定寬度 */
+    height: 200px; /* 設置圖片的固定高度 */
+    object-fit: contain; /* 確保圖片按照比例填滿寬高，並且不會變形 */
+  }
+  
+  .col-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px; /* 等價於 Bootstrap 的 mb-4 */
+  }
+  
+  
+  
