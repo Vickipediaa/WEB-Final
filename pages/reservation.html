@@ -9,7 +9,7 @@ permalink: /reservation/
     <div class="row mt-4">
 
         <div class="col">
-            <center><img
+            <center><img style="width: 50%;"
                     src="https://vir.nstc.gov.tw/Home/GetFile?filepath=upload/91d2a48144714aa49e4127f1867aec25.PNG">
                 <h3>intro</h3>
                 <p>介紹</p>
@@ -17,19 +17,20 @@ permalink: /reservation/
             </center>
         </div>
 
-
-        <div class="col" id="calendar">
-            
+        <div class="col">
+            <div id="calendar-container">
+                <div id="calendar"></div>
+            </div>
             <script>
-                document.addEventListener("DOMContentLoaded", function () {
+                document.addEventListener("DOMContentLoaded", function() {
                     const calendar = document.getElementById("calendar");
-
+        
                     const daysInMonth = (month, year) => new Date(year, month, 0).getDate();
-
+        
                     const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-11
                     const currentYear = new Date().getFullYear();
                     const days = daysInMonth(currentMonth, currentYear);
-
+        
                     for (let day = 1; day <= days; day++) {
                         const dayElement = document.createElement("div");
                         dayElement.classList.add("day");
@@ -37,14 +38,17 @@ permalink: /reservation/
                         dayElement.addEventListener("click", () => toggleBooking(dayElement));
                         calendar.appendChild(dayElement);
                     }
-
+        
                     function toggleBooking(element) {
                         element.classList.toggle("booked");
                     }
                 });
-
             </script>
-
         </div>
+        
+
     </div>
 </div>
+
+
+
