@@ -4,23 +4,78 @@
 }
 
 
-  /* index的 */
-  .text-center {
-    text-align: center;
-  }
-  
-  .img-fluid {
-    width: 200px; /* 設置圖片的固定寬度 */
-    height: 200px; /* 設置圖片的固定高度 */
-    object-fit: contain; /* 確保圖片按照比例填滿寬高，並且不會變形 */
-  }
-  
-  .col-style {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 16px; /* 等價於 Bootstrap 的 mb-4 */
-  }
-  
-  
-  
+/* 基本樣式設定 */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+  height: 100%;
+  padding: 0;
+}
+
+#chart_div {
+  height: 100vh;
+  width: 100%;
+}
+
+.form-container {
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.box_tab-link {
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 2px solid transparent;
+}
+
+.box_tab-link.active {
+  border-bottom: 2px solid #800000;
+  color: #800000;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-button:hover {
+  background-color: #333;
+}
