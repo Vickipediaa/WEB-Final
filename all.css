@@ -21,6 +21,25 @@
     align-items: center;
     margin-top: 16px; /* 等價於 Bootstrap 的 mb-4 */
   }
+
+/*nav bar*/
+.navbar {
+    background-color: #D8C4B6; /* 修改導航列的背景顏色 */
+  }
+  
+  .navbar .nav-link {
+    color: #4F709C; /* 修改導航列的文字顏色 */
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar .nav-link:focus {
+    color: #3B5284; /* 修改導航列文字在懸停和聚焦時的顏色 */
+  }
+  
+  .navbar .navbar-brand {
+    color: #4F709C; /* 修改品牌名稱的顏色 */
+  }
+  
   
   
   
