@@ -3,6 +3,173 @@ layout: default
 title: 後臺管理介面
 permalink: /backADMIN
 ---
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.chart-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.quick-links {
+    text-align: center;
+}
+
+.quick-links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-links ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.quick-links ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+</style>
+<body>
+    <header>
+        <h1>儀器租借系統後臺管理</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">首頁儀表板</a></li>
+                <li><a href="#user-management">用戶管理</a></li>
+                <li><a href="#equipment-management">儀器管理</a></li>
+                <li><a href="#rental-requests">租借申請管理</a></li>
+                <li><a href="#rental-records">租借記錄</a></li>
+                <li><a href="#notifications">通知管理</a></li>
+                <li><a href="#reports">報表生成</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>首頁儀表板</h2>
+            <!-- 儀表板內容 -->
+            <div class="cards">
+                <div class="card">
+                    <h3>總租借儀器數量</h3>
+                    <p id="total-equipment">0</p>
+                </div>
+                <div class="card">
+                    <h3>當前租借中的儀器</h3>
+                    <p id="current-rentals">0</p>
+                </div>
+                <div class="card">
+                    <h3>即將到期的租借</h3>
+                    <p id="upcoming-returns">0</p>
+                </div>
+                <div class="card">
+                    <h3>用戶註冊數量</h3>
+                    <p id="total-users">0</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="overview-chart"></canvas>
+            </div>
+        </section>
+
+        <section id="user-management">
+            <h2>用戶管理</h2>
+            <!-- 用戶管理內容 -->
+            <div>
+                <button onclick="addUser()">新增用戶</button>
+                <table id="user-table">
+                    <thead>
+                        <tr>
+                            <th>名稱</th>
+                            <th>郵箱</th>
+                            <th>註冊日期</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 用戶資料將在這裡生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="equipment-management">
+            <h2>儀器管理</h2>
+            <!-- 儀器管理內容 -->
+        </section>
+        <section id="rental-requests">
+            <h2>租借申請管理</h2>
+            <!-- 租借申請管理內容 -->
+        </section>
+        <section id="rental-records">
+            <h2>租借記錄</h2>
+            <!-- 租借記錄內容 -->
+        </section>
+        <section id="notifications">
+            <h2>通知管理</h2>
+            <!-- 通知管理內容 -->
+        </section>
+        <section id="reports">
+            <h2>報表生成</h2>
+            <!-- 報表生成內容 -->
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+
+
+
 <div class="container">
     <table id="example" class="table table-striped" style="width:100%">
         <thead>
@@ -11,7 +178,7 @@ permalink: /backADMIN
                 <th>租借者</th>
                 <th>連絡電話</th>
                 <th>租借時間</th>
-                <th>Salary</th>
+                <th>租借費用</th>
             </tr>
         </thead>
         <tbody>
@@ -140,4 +307,97 @@ permalink: /backADMIN
             }
         });
     });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('main section');
+
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const targetId = event.target.getAttribute('href').substring(1);
+            sections.forEach(section => {
+                if (section.id === targetId) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 顯示預設的首頁儀表板
+    sections.forEach(section => {
+        if (section.id === 'dashboard') {
+            section.style.display = 'block';
+        } else {
+            section.style.display = 'none';
+        }
+    });
+
+    // 初始化圖表
+    initializeChart();
+
+    // 模擬數據初始化
+    initializeData();
+});
+
+function initializeData() {
+    // 模擬數據
+    const totalEquipment = 10;
+    const currentRentals = 5;
+    const upcomingReturns = 2;
+    const totalUsers = 100;
+
+    document.getElementById('total-equipment').innerText = totalEquipment;
+    document.getElementById('current-rentals').innerText = currentRentals;
+    document.getElementById('upcoming-returns').innerText = upcomingReturns;
+    document.getElementById('total-users').innerText = totalUsers;
+
+    // 更新圖表數據
+    updateChart(totalEquipment, currentRentals, upcomingReturns, totalUsers);
+}
+
+function initializeChart() {
+    const ctx = document.getElementById('overview-chart').getContext('2d');
+    window.overviewChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['總租借儀器數量', '當前租借中的儀器', '即將到期的租借', '用戶註冊數量'],
+            datasets: [{
+                label: '數量',
+                data: [0, 0, 0, 0], // 初始數據
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function updateChart(totalEquipment, currentRentals, upcomingReturns, totalUsers) {
+    window.overviewChart.data.datasets[0].data = [totalEquipment, currentRentals, upcomingReturns, totalUsers];
+    window.overviewChart.update();
+}
+
+
 </script>
