@@ -33,55 +33,7 @@
 
   
   /*日曆*/
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-#calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    max-width: 400px;
-}
-
-.day {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-    cursor: pointer;
-}
-
-.day.booked {
-    background-color: #f0a;
-    color: white;
-}
-
-.day:hover {
-    background-color: #ddd;
-}
-
-.form-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.form-button:hover {
-  background-color: #333;
-}
-
-
-
+ 
 
 /*booking css start*/
 h1, h2, h3, h4, h5 ,h6{
