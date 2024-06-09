@@ -3,12 +3,22 @@ layout: default
 title: reservation
 permalink: /reservation/
 ---
+<style>
+    .wapper{
+        display: grid;
+        grid-template-columns: 45% 55%;
+        padding: 5%;
+    }
+    .bt{
+        width: 400px;
+        margin-bottom: 50px;
+    }
+</style>
 
 
-<div class="container" style="margin:5%">
-    <div class="row">
+    <div class="wapper">
 
-        <div class="col">
+        <div class="col" >
             <center><img style="width: 75%;"
                     src="https://vir.nstc.gov.tw/Home/GetFile?filepath=upload/91d2a48144714aa49e4127f1867aec25.PNG">
                 <h3>name</h3>
@@ -18,18 +28,113 @@ permalink: /reservation/
             </center>
         </div>
 
-        <!-- <div class="col" >
-            <div id="calendar-container">
-                <div id="calendar"></div>
-            </div>
-        </div> -->
-        <div class="col">
-            <div class="control-section">
-                <div id="Schedule"></div>
-            </div>
+        <div class="col"style="width: auto;">
+            <div id="calendar"></div>
         </div>
+       <!-- <div id="calendar-container">
+                <div id="calendar"></div>
+            </div> -->
+            <!-- Calendar position -->
+        
+            
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const calendarEl = document.getElementById("calendar");
+                    const calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: "dayGridMonth",
+                        headerToolbar: {
+                            left: "prev,next today",
+                            center: "title",
+                            right: "dayGridMonth,timeGridWeek,timeGridDay",
+                        },
+                        buttonText: {
+                            today: "Today",
+                            month: "Month",
+                            week: "Week",
+                            day: "Day",
+                        },
+                        // 點擊&多選
+                        selectable: true,
+                        dateClick: function (info) {
+                            console.log(info);
+                            alert(`Clicked: ${info.dateStr}`);
+                        },
+                        select: function (info) {
+                            console.log(info);
+                            alert(`Selected: ${info.startStr} ~ ${info.endStr}`);
+                        },
+
+                        
+
+                        // 刪除
+                        eventClick: function (info) {
+                            console.log(info.event);
+                            alert(`${info.event.title}: ${info.event.startStr}`);
+                            
+                            if (confirm(`確定要刪除預約 '${info.event.title}'?`)) {
+                                info.event.remove();
+                                alert("預約已刪除");
+                            }
+
+                        },
+
+                        // 事件
+                        events: [
+                            {
+                                title: "All Day Event",
+                                start: "2024-03-02",
+                            },
+                            {
+                                title: "Time Event",
+                                start: "2024-03-02 12:00:00",
+                            },
+                            {
+                                title: "Holiday",
+                                start: "2024-03-03 12:00:00",
+                                end: "2024-03-06 16:00:00",
+                                textColor: "#000",
+                                className: "holidayEvent"
+                            },
+                            {
+                                title: "Home Page",
+                                start: "2024-03-08",
+                                url: "網址路徑"
+                            },
+                        ],
+                        // 事件點擊
+
+                    });
+                    calendar.render();
+                    //新增事件
+                    calendar.addEvent({
+                        title: "器材租借",
+                        start: "2024-06-10 10:00",
+                        end: "2024-06-10 12:00",
+                        //allDay: true,
+                    });
+
+                });
+            </script>
+
+            <style>
+                .holidayEvent {
+                    background-color: #e5be20;
+                    border-color: #e5be20;
+                }
+
+                /* 滑鼠指到 Event 時變成手指,也可以自己寫一個 class 處理 */
+                .fc-event {
+                    cursor: pointer;
+                }
+            </style>
+
+            <!-- fullcalendar origin code -->
+            <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
 
 
 
     </div>
-</div>
+
+
+    <center><a href="../booking"><button type="button" class="btn btn-outline-primary bt">進入預約</button></center></a>
