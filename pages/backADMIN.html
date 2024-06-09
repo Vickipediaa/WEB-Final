@@ -241,6 +241,26 @@ permalink: /backADMIN
         </section>
         <section id="equipment-management">
             <h2>儀器管理</h2>
+            <div class="container">
+                <table id="example" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>儀器名稱</th>
+                            <th>租借者</th>
+                            <th>租借狀態</th>
+                            <th>到期時間</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+
+                            <td>2011-04-25</td>
+                            
+                        </tr>
         </section>
         <section id="rental-records">
             <h2>租借紀錄</h2>
@@ -437,9 +457,9 @@ permalink: /backADMIN
 
     function initializeData() {
         // 模擬數據
-        const totalEquipment = 30;
-        const currentRentals = 25;
-        const upcomingReturns = 15;
+        const totalEquipment = 130;
+        const currentRentals = 85;
+        const upcomingReturns = 55;
         const totalUsers = 475938;
 
         $('#total-equipment').text(totalEquipment);
