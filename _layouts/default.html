@@ -7,6 +7,7 @@
   <title>{{ page.title }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
   <!--register-flow chart cdn-->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.js"></script>
@@ -41,10 +42,33 @@
   <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.colVis.min.js"></script>
 
-
 </head>
 
 <body>
+  <style>
+    .navbar {
+    background-color: #D8C4B6; /* 修改導航列的背景顏色 */
+  }
+  
+  .navbar .nav-link {
+    color: #4F709C; /* 修改導航列的文字顏色 */
+  }
+  
+  .navbar .nav-link:hover,
+  .navbar .nav-link:focus {
+    color: #3B5284; /* 修改導航列文字在懸停和聚焦時的顏色 */
+  }
+  
+  .navbar .navbar-brand {
+    color: #4F709C; /* 修改品牌名稱的顏色 */
+  }
+  
+  .navbar, .footer {
+    width: 100%;
+    position: relative;
+  }
+  </style>
+
     <!--nav bar start-->
       <div style="background-color:#D8C4B6;">
         <nav class="navbar navbar-expand-lg navbar-light " >
