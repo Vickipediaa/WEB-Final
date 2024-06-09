@@ -4,7 +4,7 @@ title: 後臺管理介面
 permalink: /backADMIN
 ---
 <style>
-body {
+    body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -42,6 +42,7 @@ section {
 
 .cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 20px;
 }
@@ -52,10 +53,20 @@ section {
     border: 1px solid #ddd;
     border-radius: 5px;
     text-align: center;
+    background-color: #F5F5F5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #EDEDED;
 }
 
 .chart-container {
-    width: 80%;
+    position: relative;
+    height: 400px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -80,224 +91,308 @@ section {
     font-weight: bold;
 }
 
-
 </style>
+
 <body>
     <header>
         <h1>儀器租借系統後臺管理</h1>
-        <nav>
-            <ul>
-                <li><a href="#dashboard">首頁儀表板</a></li>
-                <li><a href="#user-management">用戶管理</a></li>
-                <li><a href="#equipment-management">儀器管理</a></li>
-                <li><a href="#rental-requests">租借申請管理</a></li>
-                <li><a href="#rental-records">租借記錄</a></li>
-                <li><a href="#notifications">通知管理</a></li>
-                <li><a href="#reports">報表生成</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #D8C4B6;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#dashboard">首頁儀表板</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#user-management">用戶管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#equipment-management">儀器管理</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#rental-records">租借記錄</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="#notifications">通知管理</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
         <section id="dashboard">
             <h2>首頁儀表板</h2>
-            <!-- 儀表板內容 -->
-            <div class="cards">
-                <div class="card">
-                    <h3>總租借儀器數量</h3>
-                    <p id="total-equipment">0</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <canvas id="equipment-pie-chart"></canvas>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>當前租借中的儀器</h3>
-                    <p id="current-rentals">0</p>
-                </div>
-                <div class="card">
-                    <h3>即將到期的租借</h3>
-                    <p id="upcoming-returns">0</p>
-                </div>
-                <div class="card">
-                    <h3>用戶註冊數量</h3>
-                    <p id="total-users">0</p>
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <canvas id="user-line-chart"></canvas>
+                    </div>
                 </div>
             </div>
-            <div class="chart-container">
-                <canvas id="overview-chart"></canvas>
+            <div class="cards mt-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">總租借儀器數量</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="total-equipment">0</p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header">當前租借中的儀器</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="current-rentals">0</p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header">即將到期的租借</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="upcoming-returns">0</p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header">用戶註冊數量</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="total-users">0</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="user-management">
             <h2>用戶管理</h2>
-            <!-- 用戶管理內容 -->
             <div>
-                <button onclick="addUser()">新增用戶</button>
-                <table id="user-table">
+                <button onclick="addUser()" class="btn btn-primary">新增用戶</button>
+                <table id="user-table" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>名稱</th>
-                            <th>郵箱</th>
+                            <th>姓名</th>
+                            <th>職編/學號</th>
+                            <th>電子信箱</th>
+                            <th>連絡電話</th>
                             <th>註冊日期</th>
-                            <th>操作</th>
+                            <th>繳費狀態</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- 用戶資料將在這裡生成 -->
+                        <tr>
+                            <td>Nixon</td>
+                            <td>1234</td>
+                            <td>Edinburgh@gmail</td>
+                            <td>2011304325</td>
+                            <td>2011-04-25</td>
+                            <td>逾期</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>4567</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2011-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2011-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2011-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2011-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2011-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </section>
+
         <section id="equipment-management">
             <h2>儀器管理</h2>
-            <!-- 儀器管理內容 -->
-        </section>
-        <section id="rental-requests">
-            <h2>租借申請管理</h2>
-            <!-- 租借申請管理內容 -->
+            <div class="container">
+                <table id="equipment-table" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>儀器名稱</th>
+                            <th>租借者</th>
+                            <th>租借狀態</th>
+                            <th>到期時間</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>2011-04-25</td>
+                            
+                        </tr>
         </section>
         <section id="rental-records">
-            <h2>租借記錄</h2>
-            <!-- 租借記錄內容 -->
+            <h2>租借紀錄</h2>
+            <div class="container">
+                <table id="rental-table" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>儀器名稱</th>
+                            <th>租借者</th>
+                            <th>連絡電話</th>
+                            <th>租借時間</th>
+                            <th>租借費用</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>2011-04-25</td>
+                            <td>$320,800</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>2011-07-25</td>
+                            <td>$170,750</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>2009-01-12</td>
+                            <td>$86,000</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>2012-03-29</td>
+                            <td>$433,060</td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>2008-11-28</td>
+                            <td>$162,700</td>
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td>Integration Specialist</td>
+                            <td>New York</td>
+                            <td>2012-12-02</td>
+                            <td>$372,000</td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td>Sales Assistant</td>
+                            <td>San Francisco</td>
+                            <td>2012-08-06</td>
+                            <td>$137,500</td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td>Integration Specialist</td>
+                            <td>Tokyo</td>
+                            <td>2010-10-14</td>
+                            <td>$327,900</td>
+                        </tr>
+                        <tr>
+                            <td>Colleen Hurst</td>
+                            <td>Javascript Developer</td>
+                            <td>San Francisco</td>
+                            <td>2009-09-15</td>
+                            <td>$205,500</td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Frost</td>
+                            <td>Software Engineer</td>
+                            <td>Edinburgh</td>
+                            <td>2008-12-13</td>
+                            <td>$103,600</td>
+                        </tr>
+                        <tr>
+                            <td>Jena Gaines</td>
+                            <td>Office Manager</td>
+                            <td>London</td>
+                            <td>2008-12-19</td>
+                            <td>$90,560</td>
+                        </tr>
+                        <tr>
+                            <td>Quinn Flynn</td>
+                            <td>Support Lead</td>
+                            <td>Edinburgh</td>
+                            <td>2013-03-03</td>
+                            <td>$342,000</td>
+                        </tr>
+                        <tr>
+                            <td>Charde Marshall</td>
+                            <td>Regional Director</td>
+                            <td>San Francisco</td>
+                            <td>2008-10-16</td>
+                            <td>$470,600</td>
+                        </tr>
+                        <tr>
+                            <td>Haley Kennedy</td>
+                            <td>Senior Marketing Designer</td>
+                            <td>London</td>
+                            <td>2012-12-18</td>
+                            <td>$313,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
+        
         <section id="notifications">
             <h2>通知管理</h2>
-            <!-- 通知管理內容 -->
         </section>
-        <section id="reports">
-            <h2>報表生成</h2>
-            <!-- 報表生成內容 -->
-        </section>
+        
     </main>
-    <script src="scripts.js"></script>
+
 </body>
 
 
 
-<div class="container">
-    <table id="example" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>儀器名稱</th>
-                <th>租借者</th>
-                <th>連絡電話</th>
-                <th>租借時間</th>
-                <th>租借費用</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                
-                <td>2011-07-25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                
-                <td>2009-01-12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                
-                <td>2012-03-29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                
-                <td>2008-11-28</td>
-                <td>$162,700</td>
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                
-                <td>2012-12-02</td>
-                <td>$372,000</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
 
-                <td>2012-08-06</td>
-                <td>$137,500</td>
-            </tr>
-            <tr>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-                <td>Tokyo</td>
-                
-                <td>2010-10-14</td>
-                <td>$327,900</td>
-            </tr>
-            <tr>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-                <td>San Francisco</td>
-                
-                <td>2009-09-15</td>
-                <td>$205,500</td>
-            </tr>
-            <tr>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-                <td>Edinburgh</td>
-                
-                <td>2008-12-13</td>
-                <td>$103,600</td>
-            </tr>
-            <tr>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-                <td>London</td>
-                
-                <td>2008-12-19</td>
-                <td>$90,560</td>
-            </tr>
-            <tr>
-                <td>Quinn Flynn</td>
-                <td>Support Lead</td>
-                <td>Edinburgh</td>
-                
-                <td>2013-03-03</td>
-                <td>$342,000</td>
-            </tr>
-            <tr>
-                <td>Charde Marshall</td>
-                <td>Regional Director</td>
-                <td>San Francisco</td>
-                
-                <td>2008-10-16</td>
-                <td>$470,600</td>
-            </tr>
-            <tr>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-                <td>London</td>
-                
-                <td>2012-12-18</td>
-                <td>$313,500</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<script>
+
+<script>   /*datatable*/
     $(document).ready(function () {
         new DataTable('#example', {
             layout: {
@@ -338,7 +433,12 @@ section {
     });
 
     // 初始化圖表
-    initializeChart();
+    initializeCharts();
+
+    // 初始化 DataTable
+    $('#user-table').DataTable();
+    $('#equipment-table').DataTable();
+    $('#rental-table').DataTable();
 
     // 模擬數據初始化
     initializeData();
@@ -346,46 +446,72 @@ section {
 
 function initializeData() {
     // 模擬數據
-    const totalEquipment = 10;
-    const currentRentals = 5;
-    const upcomingReturns = 2;
-    const totalUsers = 100;
+    const totalEquipment = 130;
+    const currentRentals = 85;
+    const upcomingReturns = 55;
+    const totalUsers = 475938;
 
-    document.getElementById('total-equipment').innerText = totalEquipment;
-    document.getElementById('current-rentals').innerText = currentRentals;
-    document.getElementById('upcoming-returns').innerText = upcomingReturns;
-    document.getElementById('total-users').innerText = totalUsers;
+    $('#total-equipment').text(totalEquipment);
+    $('#current-rentals').text(currentRentals);
+    $('#upcoming-returns').text(upcomingReturns);
+    $('#total-users').text(totalUsers);
+
+    $('.count').each(function () {
+        $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now).toLocaleString());
+            }
+        });
+    });
 
     // 更新圖表數據
-    updateChart(totalEquipment, currentRentals, upcomingReturns, totalUsers);
+    updateCharts(totalEquipment, currentRentals, upcomingReturns, totalUsers);
 }
 
-function initializeChart() {
-    const ctx = document.getElementById('overview-chart').getContext('2d');
-    window.overviewChart = new Chart(ctx, {
-        type: 'bar',
+function initializeCharts() {
+    const equipmentCtx = document.getElementById('equipment-pie-chart').getContext('2d');
+    const userCtx = document.getElementById('user-line-chart').getContext('2d');
+
+    window.equipmentPieChart = new Chart(equipmentCtx, {
+        type: 'pie',
         data: {
-            labels: ['總租借儀器數量', '當前租借中的儀器', '即將到期的租借', '用戶註冊數量'],
+            labels: ['總租借儀器數量', '當前租借中的儀器', '即將到期的租借'],
             datasets: [{
-                label: '數量',
-                data: [0, 0, 0, 0], // 初始數據
+                data: [0, 0, 0], // 初始數據
                 backgroundColor: [
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
+                    '#FF6384',
+                    '#36A2EB',
+                    '#FFCE56'
                 ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
+                hoverOffset: 4
             }]
         },
         options: {
+            responsive: true
+        }
+    });
+
+    window.userLineChart = new Chart(userCtx, {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'], // 示例數據
+            datasets: [{
+                label: '用戶註冊數量',
+                data: [0, 0, 0, 0, 0, 0, 0], // 初始數據
+                borderColor: '#4BC0C0',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
             scales: {
+                x: {
+                    beginAtZero: true
+                },
                 y: {
                     beginAtZero: true
                 }
@@ -394,9 +520,13 @@ function initializeChart() {
     });
 }
 
-function updateChart(totalEquipment, currentRentals, upcomingReturns, totalUsers) {
-    window.overviewChart.data.datasets[0].data = [totalEquipment, currentRentals, upcomingReturns, totalUsers];
-    window.overviewChart.update();
+function updateCharts(totalEquipment, currentRentals, upcomingReturns, totalUsers) {
+    window.equipmentPieChart.data.datasets[0].data = [totalEquipment, currentRentals, upcomingReturns];
+    window.equipmentPieChart.update();
+
+    // 示例更新用戶註冊數量折線圖
+    window.userLineChart.data.datasets[0].data = [50000, 150000, 300000, 350000, 400000, 450000, totalUsers]; // 示例數據
+    window.userLineChart.update();
 }
 
 
