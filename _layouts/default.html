@@ -47,10 +47,10 @@
 
 <body>
   <!--nav bar start-->
-  <div style="background-color:#D8C4B6;">
+  <div style="background-color:#F5EFE7;">
     <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#" style="color: #543310">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,32 +58,32 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#" style="color: #543310">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#" style="color: #543310">Link</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+                aria-expanded="false" style="color: #543310">
                 Dropdown
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#" style="color: #543310">Action</a></li>
+                <li><a class="dropdown-item" href="#" style="color: #543310">Another action</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#" style="color: #543310">Something else here</a></li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
+              <a class="nav-link disabled" style="color: #543310">Disabled</a>
             </li>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit" style="color: #543310">Search</button>
           </form>
         </div>
       </div>
@@ -94,10 +94,32 @@
   {{ content }}
 
   <!-- Footer Start -->
-  <footer style="text-align: center;padding: 5px;background-color: #D8C4B6">
-    Designed by <a class="text-white border-bottom" href="#">輔仁大學資管一甲</a></p>
+  <footer style="text-align: center;padding: 5px;background-color: #D8C4B6 ;color: #543310">
+    Designed by 
+    <a class=" border-bottom" href="#" style="color:#322C2B">輔仁大學資管一甲</a></p>
   </footer>
   <!-- Footer End -->
+
+<style>
+  .form-control:focus {
+      box-shadow:  5px -5px 5px rgb(235, 227, 223); /* 移除藍色陰影 */
+      border-color:#543310; /* 設定邊框顏色 */
+    }
+  .btn-outline-success {
+    border-color: #543310; /* 設定按鈕邊框顏色 */
+    color:#ebe3df;
+  }
+
+  .btn-outline-success:hover {
+    border-color: #543310; /* 設定按鈕在 hover 時的邊框顏色 */
+    color:#543310;
+  }
+  .btn-outline-success:focus, .btn-outline-success:active {
+      box-shadow: 0px 0px rgb(235, 227, 223); /* 自訂按下按鈕時的陰影 */
+      border-color: #543310; /* 設定按下按鈕時的邊框顏色 */
+      color: #543310; /* 設定按下按鈕時的文字顏色 */
+    }
+</style>
 
 </body>
 
