@@ -47,10 +47,10 @@
 
 <body>
   <!--nav bar start-->
-  <div style="background-color:#F5EFE7;">
+  <div style="background-color:#F5EFE7; width: 100%; position: fixed;">
     <nav class="navbar navbar-expand-lg navbar-light ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color: #543310">Navbar</a>
+        <a class="navbar-brand" href="#" style="color: #543310">輔大貴重儀器預約系統</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -58,10 +58,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color: #543310">Home</a>
+              <a class="nav-link active" aria-current="page" href="#" style="color: #543310">首頁</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #543310">Link</a>
+              <a class="nav-link" href="#" style="color: #543310"></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -78,20 +78,21 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" style="color: #543310">Disabled</a>
+              <a class="nav-link" style="color: #543310">Disabled</a>
             </li>
           </ul>
           <form class="d-flex">
             <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success custom-border-color" type="submit" style="color: #543310">Search</button>
+            <button class="btn btn-outline-light custom-border-color" type="submit" style="color: #543310">Search</button>
           </form>
         </div>
       </div>
     </nav>
   </div>
 
-
+<div style="top: 100px;">
   {{ content }}
+</div>
 
   <!-- Footer Start -->
   <footer style="text-align: center;padding: 5px;background-color: #D8C4B6 ;color: #543310">
