@@ -121,28 +121,31 @@ permalink: /register
 
     function drawChart() {
         var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Day');
-        data.addColumn('number', 'product A');
-        data.addColumn('number', 'product B');
+        data.addColumn('number', '次數');
+        data.addColumn('number', 'TissueFAXS分析軟體');
+        data.addColumn('number', '正立螢光顯微鏡-AxioPlan2 Upright');
+        data.addColumn('number', '高階三維重建影像分析軟體-Imaris');
+        data.addColumn('number', '高階13色流式細胞儀-LSR II Flow Cytometer');
+        data.addColumn('number', '雷射共軛焦顯微鏡-FV 1000 Confocal Microscope');
 
         data.addRows([
-            [1, 37.8, 80.8],
-            [2, 30.9, 69.5],
-            [3, 25.4, 57],
-            [4, 11.7, 18.8],
-            [5, 11.9, 17.6],
-            [6, 8.8, 13.6],
-            [7, 7.6, 12.3],
-            [8, 12.3, 29.2],
-            [9, 16.9, 42.9],
-            [10, 12.8, 30.9],
-            [11, 5.3, 7.9],
-            [12, 6.6, 8.4],
+            [1, 37, 80,56,44,87],
+            [2, 30, 69,23,54,89],
+            [3, 25, 57,77,35,79],
+            [4, 11, 18,56,87,43],
+            [5, 11, 17,87,65,88],
+            [6, 8, 13,27,87,44],
+            [7, 7, 12,69,34,67],
+            [8, 12, 29,65,98,32],
+            [9, 16, 42,76,62,99],
+            [10, 12, 30,86,64,76],
+            [11, 5, 79,17,45,78],
+            [12, 6, 84,98,63,47],
         ]);
 
         var options = {
             chart: {
-                title: 'Box Office Earnings in First Two Weeks of Opening',
+                title: '每月儀器使用統計圖',
                 subtitle: 'in millions of dollars (USD)'
             },
             axes: {
