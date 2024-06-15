@@ -4,50 +4,44 @@ title: 後臺管理介面
 permalink: /backADMIN
 ---
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
+    .backend header {
         background-color: #333;
         color: white;
         padding: 10px 0;
         text-align: center;
     }
 
-    nav ul {
+    .backend nav ul {
         list-style-type: none;
         padding: 0;
     }
 
-    nav ul li {
+    .backend nav ul li {
         display: inline;
         margin-right: 20px;
     }
 
-    nav ul li a {
+    .backend nav ul li a {
         color: white;
         text-decoration: none;
     }
 
-    main {
+    .backend main {
         padding: 20px;
     }
 
-    section {
+    .backend section {
         margin-bottom: 40px;
     }
 
-    .cards {
+    .backend .cards {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         margin-bottom: 20px;
     }
 
-    .card {
+    .backend .card {
         width: 200px;
         padding: 10px;
         border: 1px solid #ddd;
@@ -58,12 +52,12 @@ permalink: /backADMIN
         transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
     }
 
-    .card:hover {
+    .backend .card:hover {
         transform: translateY(-10px);
         background-color: #EDEDED;
     }
 
-    .chart-container {
+    .backend .chart-container {
         position: relative;
         height: 400px;
         width: 100%;
@@ -71,56 +65,56 @@ permalink: /backADMIN
         margin-bottom: 20px;
     }
 
-    .quick-links {
+    .backend .quick-links {
         text-align: center;
     }
 
-    .quick-links ul {
+    .backend .quick-links ul {
         list-style-type: none;
         padding: 0;
     }
 
-    .quick-links ul li {
+    .backend .quick-links ul li {
         display: inline-block;
         margin: 0 10px;
     }
 
-    .quick-links ul li a {
+    .backend .quick-links ul li a {
         color: #333;
         text-decoration: none;
         font-weight: bold;
     }
 
-    .table-container {
-            display: flex;
-            justify-content: center;
-        }
+    .backend .table-container {
+        display: flex;
+        justify-content: center;
+    }
 
-        .table {
-            width: 80%;
-            margin: auto;
-        }
+    .backend .table {
+        width: 80%;
+        margin: auto;
+    }
 
-        @media (max-width: 768px) {
-        .cards {
+    @media (max-width: 768px) {
+        .backend .cards {
             flex-direction: column;
             align-items: center;
         }
 
-        .card {
+        .backend .card {
             width: 100%;
             margin-bottom: 10px;
         }
 
-        .chart-container {
+        .backend .chart-container {
             height: 300px;
         }
 
-        .table {
+        .backend .table {
             width: 100%;
         }
 
-        nav ul li {
+        .backend nav ul li {
             display: block;
             margin-right: 0;
             margin-bottom: 10px;
@@ -129,389 +123,389 @@ permalink: /backADMIN
     }
 </style>
 
+<div class="backend">
+    <header>
+        <h1>儀器租借系統後臺管理</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark justify-content-center " style="background-color: #333;">
+            <div class="container-fluid ">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#dashboard" style="color:white">首頁儀表板</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#user-management">用戶管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipment-management">儀器管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rental-records">租借記錄</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-<header>
-    <h1>儀器租借系統後臺管理</h1>
-    <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #333;">
-        <div class="container-fluid ">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#dashboard" style="color:white">首頁儀表板</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#user-management">用戶管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#equipment-management">儀器管理</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#rental-records">租借記錄</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<main>
-    <section id="dashboard">
-        <h2>首頁儀表板</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="chart-container">
-                    <canvas id="equipment-pie-chart"></canvas>
+    <main>
+        <section id="dashboard">
+            <h2>首頁儀表板</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <canvas id="equipment-pie-chart"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="chart-container">
+                        <canvas id="user-line-chart"></canvas>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="chart-container">
-                    <canvas id="user-line-chart"></canvas>
+            <div class="cards mt-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header">總租借儀器數量</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="total-equipment">0</p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header">當前租借中的儀器</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="current-rentals">0</p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header">即將到期的租借</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="upcoming-returns">0</p>
+                    </div>
+                </div>
+                <div class="card bg-light mb-3">
+                    <div class="card-header">用戶註冊數量</div>
+                    <div class="card-body">
+                        <p class="count card-text" id="total-users">0</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="cards mt-4">
-            <div class="card bg-light mb-3">
-                <div class="card-header">總租借儀器數量</div>
-                <div class="card-body">
-                    <p class="count card-text" id="total-equipment">0</p>
-                </div>
+        </section>
+
+        <section id="user-management">
+            <h2>用戶管理</h2>
+            <div>
+                <button onclick="addUser()" class="btn btn-primary">新增用戶</button>
+                <table id="user-table" class="table table-striped " style="width:80%">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>職編/學號</th>
+                            <th>電子信箱</th>
+                            <th>連絡電話</th>
+                            <th>註冊日期</th>
+                            <th>繳費狀態</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 用戶資料將在這裡生成 -->
+                        <tr>
+                            <td>Nixon</td>
+                            <td>1234</td>
+                            <td>Edinburgh@gmail</td>
+                            <td>2011304325</td>
+                            <td>2024-04-25</td>
+                            <td>逾期</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>4567</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-07-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-08-05</td>
+                            <td>逾期</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-08-15</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-08-25</td>
+                            <td>逾期</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>4567</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-09-11</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>4567</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-09-25</td>
+                            <td>已繳費</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-10-25</td>
+                            <td>逾期</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett</td>
+                            <td>Accountant</td>
+                            <td>Tokyo@gmail.com</td>
+                            <td>2011507325</td>
+                            <td>2024-11-25</td>
+                            <td>逾期</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="card bg-light mb-3">
-                <div class="card-header">當前租借中的儀器</div>
-                <div class="card-body">
-                    <p class="count card-text" id="current-rentals">0</p>
-                </div>
+        </section>
+
+        <section id="equipment-management">
+            <h2>儀器管理</h2>
+            <div class="container">
+                <table id="equipment-table" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>儀器名稱</th>
+                            <th>租借者</th>
+                            <th>租借狀態</th>
+                            <th>到期時間</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>高階13色流式細胞儀-LSR II Flow Cytometer</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>類流式影像自動擷取定量系統-TissueFAXS</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>TissueFAXS分析軟體</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>雷射共軛焦顯微鏡-FV 1000 Confocal Microscope</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>細胞內離子偵測系統-Cell^R Excellence System</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>正立螢光顯微鏡-AxioPlan2 Upright</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>螢光共振能量轉移顯微系統-Leica M205FA Fluorescence</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>多層次螢光影像擷取與分析系統-ImageXpress</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>高階三維重建影像分析軟體-Imaris</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>核磁共振儀-Varian-NMR-600MHz</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>高階13色流式細胞儀-LSR II Flow Cytometer</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                        <tr>
+                            <td>高階13色流式細胞儀-LSR II Flow Cytometer</td>
+                            <td>System </td>
+                            <td>借出中</td>
+                            <td>2011-04-25</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="card bg-light mb-3">
-                <div class="card-header">即將到期的租借</div>
-                <div class="card-body">
-                    <p class="count card-text" id="upcoming-returns">0</p>
-                </div>
+        </section>
+        <section id="rental-records">
+            <h2>租借紀錄</h2>
+            <div class="container">
+                <table id="rental-table" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>儀器名稱</th>
+                            <th>租借者</th>
+                            <th>連絡電話</th>
+                            <th>租借時間</th>
+                            <th>租借費用</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tiger Nixon</td>
+                            <td>System Architect</td>
+                            <td>Edinburgh</td>
+                            <td>2011-04-25</td>
+                            <td>$320,800</td>
+                        </tr>
+                        <tr>
+                            <td>Garrett Winters</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>2011-07-25</td>
+                            <td>$170,750</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>Junior Technical Author</td>
+                            <td>San Francisco</td>
+                            <td>2009-01-12</td>
+                            <td>$86,000</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Edinburgh</td>
+                            <td>2012-03-29</td>
+                            <td>$433,060</td>
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>Accountant</td>
+                            <td>Tokyo</td>
+                            <td>2008-11-28</td>
+                            <td>$162,700</td>
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td>Integration Specialist</td>
+                            <td>New York</td>
+                            <td>2012-12-02</td>
+                            <td>$372,000</td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td>Sales Assistant</td>
+                            <td>San Francisco</td>
+                            <td>2012-08-06</td>
+                            <td>$137,500</td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td>Integration Specialist</td>
+                            <td>Tokyo</td>
+                            <td>2010-10-14</td>
+                            <td>$327,900</td>
+                        </tr>
+                        <tr>
+                            <td>Colleen Hurst</td>
+                            <td>Javascript Developer</td>
+                            <td>San Francisco</td>
+                            <td>2009-09-15</td>
+                            <td>$205,500</td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Frost</td>
+                            <td>Software Engineer</td>
+                            <td>Edinburgh</td>
+                            <td>2008-12-13</td>
+                            <td>$103,600</td>
+                        </tr>
+                        <tr>
+                            <td>Jena Gaines</td>
+                            <td>Office Manager</td>
+                            <td>London</td>
+                            <td>2008-12-19</td>
+                            <td>$90,560</td>
+                        </tr>
+                        <tr>
+                            <td>Quinn Flynn</td>
+                            <td>Support Lead</td>
+                            <td>Edinburgh</td>
+                            <td>2013-03-03</td>
+                            <td>$342,000</td>
+                        </tr>
+                        <tr>
+                            <td>Charde Marshall</td>
+                            <td>Regional Director</td>
+                            <td>San Francisco</td>
+                            <td>2008-10-16</td>
+                            <td>$470,600</td>
+                        </tr>
+                        <tr>
+                            <td>Haley Kennedy</td>
+                            <td>Senior Marketing Designer</td>
+                            <td>London</td>
+                            <td>2012-12-18</td>
+                            <td>$313,500</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="card bg-light mb-3">
-                <div class="card-header">用戶註冊數量</div>
-                <div class="card-body">
-                    <p class="count card-text" id="total-users">0</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="user-management">
-        <h2>用戶管理</h2>
-        <div>
-            <button onclick="addUser()" class="btn btn-primary">新增用戶</button>
-            <table id="user-table" class="table table-striped "style="width:80%" >
-                <thead>
-                    <tr>
-                        <th>姓名</th>
-                        <th>職編/學號</th>
-                        <th>電子信箱</th>
-                        <th>連絡電話</th>
-                        <th>註冊日期</th>
-                        <th>繳費狀態</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- 用戶資料將在這裡生成 -->
-                    <tr>
-                        <td>Nixon</td>
-                        <td>1234</td>
-                        <td>Edinburgh@gmail</td>
-                        <td>2011304325</td>
-                        <td>2024-04-25</td>
-                        <td>逾期</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>4567</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-07-25</td>
-                        <td>已繳費</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Accountant</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-07-25</td>
-                        <td>已繳費</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Accountant</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-08-05</td>
-                        <td>逾期</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Accountant</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-08-15</td>
-                        <td>已繳費</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Accountant</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-08-25</td>
-                        <td>逾期</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>4567</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-09-11</td>
-                        <td>已繳費</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>4567</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-09-25</td>
-                        <td>已繳費</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Accountant</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-10-25</td>
-                        <td>逾期</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett</td>
-                        <td>Accountant</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>2011507325</td>
-                        <td>2024-11-25</td>
-                        <td>逾期</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <section id="notifications">
+            <h2>通知管理</h2>
+        </section>
 
-    <section id="equipment-management">
-        <h2>儀器管理</h2>
-        <div class="container">
-            <table id="equipment-table" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>儀器名稱</th>
-                        <th>租借者</th>
-                        <th>租借狀態</th>
-                        <th>到期時間</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>高階13色流式細胞儀-LSR II Flow Cytometer</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>類流式影像自動擷取定量系統-TissueFAXS</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>TissueFAXS分析軟體</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>雷射共軛焦顯微鏡-FV 1000 Confocal Microscope</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>細胞內離子偵測系統-Cell^R Excellence System</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>正立螢光顯微鏡-AxioPlan2 Upright</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>螢光共振能量轉移顯微系統-Leica M205FA Fluorescence</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>多層次螢光影像擷取與分析系統-ImageXpress</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>高階三維重建影像分析軟體-Imaris</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>核磁共振儀-Varian-NMR-600MHz</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>高階13色流式細胞儀-LSR II Flow Cytometer</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                    <tr>
-                        <td>高階13色流式細胞儀-LSR II Flow Cytometer</td>
-                        <td>System </td>
-                        <td>借出中</td>
-                        <td>2011-04-25</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-    <section id="rental-records">
-        <h2>租借紀錄</h2>
-        <div class="container">
-            <table id="rental-table" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>儀器名稱</th>
-                        <th>租借者</th>
-                        <th>連絡電話</th>
-                        <th>租借時間</th>
-                        <th>租借費用</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>2011-04-25</td>
-                        <td>$320,800</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>2011-07-25</td>
-                        <td>$170,750</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>2009-01-12</td>
-                        <td>$86,000</td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Kelly</td>
-                        <td>Senior Javascript Developer</td>
-                        <td>Edinburgh</td>
-                        <td>2012-03-29</td>
-                        <td>$433,060</td>
-                    </tr>
-                    <tr>
-                        <td>Airi Satou</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>2008-11-28</td>
-                        <td>$162,700</td>
-                    </tr>
-                    <tr>
-                        <td>Brielle Williamson</td>
-                        <td>Integration Specialist</td>
-                        <td>New York</td>
-                        <td>2012-12-02</td>
-                        <td>$372,000</td>
-                    </tr>
-                    <tr>
-                        <td>Herrod Chandler</td>
-                        <td>Sales Assistant</td>
-                        <td>San Francisco</td>
-                        <td>2012-08-06</td>
-                        <td>$137,500</td>
-                    </tr>
-                    <tr>
-                        <td>Rhona Davidson</td>
-                        <td>Integration Specialist</td>
-                        <td>Tokyo</td>
-                        <td>2010-10-14</td>
-                        <td>$327,900</td>
-                    </tr>
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>Javascript Developer</td>
-                        <td>San Francisco</td>
-                        <td>2009-09-15</td>
-                        <td>$205,500</td>
-                    </tr>
-                    <tr>
-                        <td>Sonya Frost</td>
-                        <td>Software Engineer</td>
-                        <td>Edinburgh</td>
-                        <td>2008-12-13</td>
-                        <td>$103,600</td>
-                    </tr>
-                    <tr>
-                        <td>Jena Gaines</td>
-                        <td>Office Manager</td>
-                        <td>London</td>
-                        <td>2008-12-19</td>
-                        <td>$90,560</td>
-                    </tr>
-                    <tr>
-                        <td>Quinn Flynn</td>
-                        <td>Support Lead</td>
-                        <td>Edinburgh</td>
-                        <td>2013-03-03</td>
-                        <td>$342,000</td>
-                    </tr>
-                    <tr>
-                        <td>Charde Marshall</td>
-                        <td>Regional Director</td>
-                        <td>San Francisco</td>
-                        <td>2008-10-16</td>
-                        <td>$470,600</td>
-                    </tr>
-                    <tr>
-                        <td>Haley Kennedy</td>
-                        <td>Senior Marketing Designer</td>
-                        <td>London</td>
-                        <td>2012-12-18</td>
-                        <td>$313,500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="notifications">
-        <h2>通知管理</h2>
-    </section>
-
-</main>
+    </main>
 
 
-
+</div>
 
 
 <script>   /*datatable*/
@@ -528,7 +522,7 @@ permalink: /backADMIN
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const links = document.querySelectorAll('.nav-link');
+        const links = document.querySelectorAll('.backend .nav-link');
         const sections = document.querySelectorAll('section'); // 確保你有這個選擇器對應到你想要顯示/隱藏的 section 元素
 
         links.forEach(link => {
@@ -659,6 +653,4 @@ permalink: /backADMIN
         window.userLineChart.data.datasets[0].data = [50000, 150000, 300000, 350000, 400000, 450000, totalUsers]; // 示例數據
         window.userLineChart.update();
     }
-
-
 </script>
