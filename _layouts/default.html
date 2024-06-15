@@ -50,12 +50,12 @@
 
 <body>
   <div class="sticky-top" style="background-color:#F5EFE7; ">
-    <nav class="navbar navbar-expand-lg navbar-light" style="">
+    <nav class="navbar navbar-expand-lg navbar-light" >
       <div class="d-flex justify-content-center">
-        <img class="img-fluid" src="https://gloria.fju.edu.tw/wp-content/uploads/2021/05/site_icon_1.png" style="width: 50px; height: 50px;" >
+        <img class="img-fluid ms-3" src="https://gloria.fju.edu.tw/wp-content/uploads/2021/05/site_icon_1.png" style="width: 50px; height: 50px; ;" >
       </div>
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color: #543310">輔大貴重儀器預約系統</a>
+        <a class="navbar-brand" href="#" style="color: #543310 ; font-family: 標楷體; font-weight: bold; font-size:150%; background-color:lightgray" >輔大貴重儀器預約系統</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -72,25 +72,31 @@
               <a class="nav-link" href="../reservation" style="color: #543310">儀器預約</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../backADMIN" data-bs-toggle="modal" data-bs-target="#user" style="color: #543310">後臺管理系統</a>
+              <a class="nav-link" href="../backADMIN" data-bs-toggle="modal" data-bs-target="#back" style="color: #543310">後臺管理系統</a>
               <div class="modal fade" id="back" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">使用者資訊</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">管理者登入</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      使用者帳號：<br>
-                      目前為登入狀態，是否要登出並跳回主畫面？
+                     
+                      <div class="loginGroup">
+                        <label> 管理者密碼
+                          <input type="email" id="userID" placeholder="請輸入密碼">
+                        </label>
+                      </div>
+                    
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登出</button>
-                      <button type="button" class="btn btn-primary">留下</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+                      <button type="button" class="btn btn-primary" href="../backADMIN">登入</button>
                     </div>
                   </div>
                 </div>
               </div>
+              
             </li>
            
           </ul>
@@ -105,28 +111,30 @@
       </div>
       <!-- Button trigger modal -->
 
-  <i class="fa-regular fa-circle-user me-3" data-bs-toggle="modal" data-bs-target="#user" style="font-size:24px;color:#543310"></i>
+  <i class="fa-regular fa-circle-user me-3 fc-event" data-bs-toggle="modal" data-bs-target="#user" style="font-size:24px;color:#543310"></i>
+
+<!--手指-->
+<style>
+  .fc-event {
+            cursor: pointer;
+        }
+</style>
 
 <!-- Modal -->
-<div class="modal fade" id="user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " id="user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">管理者登入</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">使用者資訊</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       
-        <div class="loginGroup">
-          <label> 管理者密碼
-            <input type="email" id="userID" placeholder="請輸入密碼">
-          </label>
-        </div>
-      
+        使用者帳號：<br>
+        目前為登入狀態，是否要登出並跳回主畫面？
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
-        <button type="button" class="btn btn-primary" href="../backADMIN">登入</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登出</button>
+        <button type="button" class="btn btn-primary">留下</button>
       </div>
     </div>
   </div>
