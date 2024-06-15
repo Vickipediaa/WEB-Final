@@ -1,8 +1,149 @@
 ---
-layout: reservation
-title:  a1
+layout: default
+title: 租借預覽|輔大貴重儀器租借系統
 permalink: /reservation/a1
 ---
-<h3>name</h3>
-<h3>intro</h3>
-<p>介紹</p>
+<style>
+    .wapper{
+        display: grid;
+        grid-template-columns: 45% 55%;
+        padding: 5%;
+    }
+    .bt{
+        width: 400px;
+        margin-top: 50px;
+    }
+</style>
+<center><a href="../booking"><button type="button" class="btn btn-outline-primary bt">進入預約</button></center></a>
+
+    <div class="wapper">
+
+        <div class="col" >
+            <center>
+                <img style="width: 75%;"
+                    src="https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M">
+                
+                <h3 class="mt-3"><b>類流式影像自動擷取定量系統</b></h3>
+                <b><h4>TissueFAXS</h4></b>
+                <h5 calss="mt-3" align="left">儀器規格：</h5>
+                <ol align="left">
+                    <li>顯微鏡系統：ZEISS Z2倒立顯微鏡。</li>
+                    <li>物鏡倍率：2.5X、10X、20X、40X(油鏡)。</li>
+                    <li>照相系統：配有彩色及黑白CCD照相系統。</li>
+                    <li>濾鏡模組：具備DAPI、FITC、Cy3、Cy5。</li>
+                    <li>應用軟體：TissueFAXS -掃片軟體，TissueQuest及HistoQuest - 分析軟體。</li>
+                </ol>
+                <h5 calss="mt-3" align="left">租借費用&押金：</h5>
+                <ol align="left">
+                    <li>租借費用：NT.5000/hr</li>
+                    <li>押金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：NT.10000/hr</li>
+                </ol>
+            </center>
+        </div>
+
+        <div class="col mt-5"style="width: auto;">
+            <div id="calendar"></div>
+            <div align="right" style="color: #aba27a;">*如要取消預約，請點擊日曆中您預約的時程來做取消。</div>
+        </div>
+          
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const calendarEl = document.getElementById("calendar");
+                    const calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: "dayGridMonth",
+                        headerToolbar: {
+                            left: "prev,next today",
+                            center: "title",
+                            right: "dayGridMonth,timeGridWeek,timeGridDay",
+                        },
+                        buttonText: {
+                            today: "Today",
+                            month: "Month",
+                            week: "Week",
+                            day: "Day",
+                        },
+                        // 點擊&多選
+                        selectable: true,
+                        dateClick: function (info) {
+                            console.log(info);
+                            alert(`Clicked: ${info.dateStr}`);
+                        },
+                        select: function (info) {
+                            console.log(info);
+                            alert(`Selected: ${info.startStr} ~ ${info.endStr}`);
+                        },
+
+                        
+
+                        // 刪除
+                        eventClick: function (info) {
+                            console.log(info.event);
+                            alert(`${info.event.title}: ${info.event.startStr}`);
+                            
+                            if (confirm(`確定要刪除預約 '${info.event.title}'?`)) {
+                                info.event.remove();
+                                alert("預約已刪除");
+                            }
+
+                        },
+
+                        // 事件
+                        events: [
+                            {
+                                title: "All Day Event",
+                                start: "2024-03-02",
+                            },
+                            {
+                                title: "Time Event",
+                                start: "2024-03-02 12:00:00",
+                            },
+                            {
+                                title: "Holiday",
+                                start: "2024-03-03 12:00:00",
+                                end: "2024-03-06 16:00:00",
+                                textColor: "#000",
+                                className: "holidayEvent"
+                            },
+                            {
+                                title: "Home Page",
+                                start: "2024-03-08",
+                                url: "網址路徑"
+                            },
+                        ],
+                        // 事件點擊
+
+                    });
+                    calendar.render();
+                    //新增事件
+                    calendar.addEvent({
+                        title: "器材租借",
+                        start: "2024-06-10 10:00",
+                        end: "2024-06-10 12:00",
+                        //allDay: true,
+                    });
+
+                });
+            </script>
+
+            <style>
+                .holidayEvent {
+                    background-color: #e5be20;
+                    border-color: #e5be20;
+                }
+
+                /* 滑鼠指到 Event 時變成手指,也可以自己寫一個 class 處理 */
+                .fc-event {
+                    cursor: pointer;
+                }
+            </style>
+
+            <!-- fullcalendar origin code -->
+            <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+
+               </div>
+
+ 
+
+
