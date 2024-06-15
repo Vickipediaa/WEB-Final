@@ -50,7 +50,10 @@
 
 <body>
   <div class="sticky-top" style="background-color:#F5EFE7; ">
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="">
+      <div class="d-flex justify-content-center">
+        <img class="img-fluid" src="https://gloria.fju.edu.tw/wp-content/uploads/2021/05/site_icon_1.png" style="width: 50px; height: 50px;" >
+      </div>
       <div class="container-fluid">
         <a class="navbar-brand" href="#" style="color: #543310">輔大貴重儀器預約系統</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -60,25 +63,34 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color: #543310">首頁</a>
+              <a class="nav-link active" aria-current="page" href="../register" style="color: #543310">首頁</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #543310">儀器預約</a>
+              <a class="nav-link" href="../index" style="color: #543310">儀器查詢</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false" style="color: #543310">
-                後臺管理系統
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" style="color: #543310">1</a></li>
-                <li><a class="dropdown-item" href="#" style="color: #543310">2</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#" style="color: #543310">儀器查詢</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="../reservation" style="color: #543310">儀器預約</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../backADMIN" data-bs-toggle="modal" data-bs-target="#user" style="color: #543310">後臺管理系統</a>
+              <div class="modal fade" id="back" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">使用者資訊</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      使用者帳號：<br>
+                      目前為登入狀態，是否要登出並跳回主畫面？
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登出</button>
+                      <button type="button" class="btn btn-primary">留下</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
            
           </ul>
@@ -93,23 +105,28 @@
       </div>
       <!-- Button trigger modal -->
 
-  <i class="fa-regular fa-circle-user me-3" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size:24px;color:#543310"></i>
+  <i class="fa-regular fa-circle-user me-3" data-bs-toggle="modal" data-bs-target="#user" style="font-size:24px;color:#543310"></i>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">使用者資訊</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">管理者登入</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        使用者帳號：<br>
-        目前為登入狀態，是否要登出並跳回主畫面？
+       
+        <div class="loginGroup">
+          <label> 管理者密碼
+            <input type="email" id="userID" placeholder="請輸入密碼">
+          </label>
+        </div>
+      
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登出</button>
-        <button type="button" class="btn btn-primary">留下</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
+        <button type="button" class="btn btn-primary" href="../backADMIN">登入</button>
       </div>
     </div>
   </div>
@@ -119,11 +136,7 @@
   </div>
 
 
-  <ul id="menu">
-    <li><a href="#L384">Section 1</a>
-    <li><a href="#details">Section 2</a>
-    <li><a href="#FAQ">Section 3</a>
-  </ul>
+
 
   <div style="top: 100px;">
     {{ content }}

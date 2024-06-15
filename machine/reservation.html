@@ -4,27 +4,31 @@ title: 租借預覽|輔大貴重儀器租借系統
 permalink: /reservation/
 ---
 <style>
-    .wapper{
+    .wapper {
         display: grid;
         grid-template-columns: 45% 55%;
         padding: 5%;
     }
-    .bt{
+
+    .bt {
         width: 400px;
         margin-bottom: 50px;
     }
 </style>
 <center><a href="../booking"><button type="button" class="btn btn-outline-primary bt">進入預約</button></center></a>
 
-    <div class="wapper">
+<div class="wapper">
 
-        <div class="col" >
+    <div class="col">
+        {% for item in site.data %}
+        <div id="{{ item.name }}">
             <center>
-                <img style="width: 75%;"
-                    src="https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M">
-                
-                <h3 class="mt-3"><b>高階13色流式細胞儀</b></h3>
-                <b><h4>LSR II Flow Cytometer</h4></b>
+                <img style="width: 75%;" src="{{ item.img }}">
+
+                <h3 class="mt-3"><b>{{ item.name }}</b></h3>
+                <b>
+                    <h4>{{ item.nameEN }}</h4>
+                </b>
                 <h5 calss="mt-3" align="left">儀器規格：</h5>
                 <ol align="left">
                     <li>本高階流式細胞儀，為桌上型，易於操作，附有自動螢光補償校正軟體。</li>
@@ -38,112 +42,140 @@ permalink: /reservation/
                 </ol>
             </center>
         </div>
-
-        <div class="col mt-5"style="width: auto;">
-            <div id="calendar"></div>
-            <div align="right" style="color: #aba27a;">*如要取消預約，請點擊日曆中您預約的時程來做取消。</div>
+        {% endfor %}
+        <div id="NOITEM" style="display: none;">
+            <center>
+                <h3 class="mt-3"><b>參數錯誤。</b></h3>
+                <b>
+                    <h4></h4>
+                </b>
+                
+            </center>
         </div>
-          
+    </div>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const calendarEl = document.getElementById("calendar");
-                    const calendar = new FullCalendar.Calendar(calendarEl, {
-                        initialView: "dayGridMonth",
-                        headerToolbar: {
-                            left: "prev,next today",
-                            center: "title",
-                            right: "dayGridMonth,timeGridWeek,timeGridDay",
-                        },
-                        buttonText: {
-                            today: "Today",
-                            month: "Month",
-                            week: "Week",
-                            day: "Day",
-                        },
-                        // 點擊&多選
-                        selectable: true,
-                        dateClick: function (info) {
-                            console.log(info);
-                            alert(`Clicked: ${info.dateStr}`);
-                        },
-                        select: function (info) {
-                            console.log(info);
-                            alert(`Selected: ${info.startStr} ~ ${info.endStr}`);
-                        },
-
-                        
-
-                        // 刪除
-                        eventClick: function (info) {
-                            console.log(info.event);
-                            alert(`${info.event.title}: ${info.event.startStr}`);
-                            
-                            if (confirm(`確定要刪除預約 '${info.event.title}'?`)) {
-                                info.event.remove();
-                                alert("預約已刪除");
-                            }
-
-                        },
-
-                        // 事件
-                        events: [
-                            {
-                                title: "All Day Event",
-                                start: "2024-03-02",
-                            },
-                            {
-                                title: "Time Event",
-                                start: "2024-03-02 12:00:00",
-                            },
-                            {
-                                title: "Holiday",
-                                start: "2024-03-03 12:00:00",
-                                end: "2024-03-06 16:00:00",
-                                textColor: "#000",
-                                className: "holidayEvent"
-                            },
-                            {
-                                title: "Home Page",
-                                start: "2024-03-08",
-                                url: "網址路徑"
-                            },
-                        ],
-                        // 事件點擊
-
-                    });
-                    calendar.render();
-                    //新增事件
-                    calendar.addEvent({
-                        title: "器材租借",
-                        start: "2024-06-10 10:00",
-                        end: "2024-06-10 12:00",
-                        //allDay: true,
-                    });
-
-                });
-            </script>
-
-            <style>
-                .holidayEvent {
-                    background-color: #e5be20;
-                    border-color: #e5be20;
-                }
-
-                /* 滑鼠指到 Event 時變成手指,也可以自己寫一個 class 處理 */
-                .fc-event {
-                    cursor: pointer;
-                }
-            </style>
-
-            <!-- fullcalendar origin code -->
-            <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-
-
-               </div>
- 
-
+    <div class="col mt-5" style="width: auto;">
+        <div id="calendar"></div>
+        <div align="right" style="color: #aba27a;">*如要取消預約，請點擊日曆中您預約的時程來做取消。</div>
     </div>
 
 
-    <center><a href="../booking"><button type="button" class="btn btn-outline-primary bt">進入預約</button></center></a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const calendarEl = document.getElementById("calendar");
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: "dayGridMonth",
+                headerToolbar: {
+                    left: "prev,next today",
+                    center: "title",
+                    right: "dayGridMonth,timeGridWeek,timeGridDay",
+                },
+                buttonText: {
+                    today: "Today",
+                    month: "Month",
+                    week: "Week",
+                    day: "Day",
+                },
+                // 點擊&多選
+                selectable: true,
+                dateClick: function (info) {
+                    console.log(info);
+                    alert(`Clicked: ${info.dateStr}`);
+                },
+                select: function (info) {
+                    console.log(info);
+                    alert(`Selected: ${info.startStr} ~ ${info.endStr}`);
+                },
+
+
+
+                // 刪除
+                eventClick: function (info) {
+                    console.log(info.event);
+                    alert(`${info.event.title}: ${info.event.startStr}`);
+
+                    if (confirm(`確定要刪除預約 '${info.event.title}'?`)) {
+                        info.event.remove();
+                        alert("預約已刪除");
+                    }
+
+                },
+
+                // 事件
+                events: [
+                    {
+                        title: "All Day Event",
+                        start: "2024-03-02",
+                    },
+                    {
+                        title: "Time Event",
+                        start: "2024-03-02 12:00:00",
+                    },
+                    {
+                        title: "Holiday",
+                        start: "2024-03-03 12:00:00",
+                        end: "2024-03-06 16:00:00",
+                        textColor: "#000",
+                        className: "holidayEvent"
+                    },
+                    {
+                        title: "Home Page",
+                        start: "2024-03-08",
+                        url: "網址路徑"
+                    },
+                ],
+                // 事件點擊
+
+            });
+            calendar.render();
+            //新增事件
+            calendar.addEvent({
+                title: "器材租借",
+                start: "2024-06-10 10:00",
+                end: "2024-06-10 12:00",
+                //allDay: true,
+            });
+
+        });
+    </script>
+
+    <style>
+        .holidayEvent {
+            background-color: #e5be20;
+            border-color: #e5be20;
+        }
+
+        /* 滑鼠指到 Event 時變成手指,也可以自己寫一個 class 處理 */
+        .fc-event {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemParam = urlParams.get('item');
+        const itemIDList = [{% for item in site.data %}"{{ item.name }}"{% if forloop.last == false %}, {% endif %} {% endfor %}];
+        let status = false;
+        itemIDList.forEach(item => {
+            if (item == itemParam) {
+                $(`#${item}`).show();
+                status = true;
+            } else {
+                $(`#${item}`).hide();
+            }
+        });
+        if(status == false){
+            $(`#NOITEM`).show();
+        }
+    </script>
+    <!-- fullcalendar origin code -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+
+</div>
+
+
+</div>
+
+
+<center><a href="../booking"><button type="button" class="btn btn-outline-primary bt">進入預約</button></center></a>
