@@ -102,11 +102,17 @@ footer {
     color: #543310;
 
 }
-#collapseExampleButton{
-    color:#543310;
+
+#collapseExampleButton {
+    color: #543310;
 }
 
-#collapseExampleButton:hover{
+#collapseExampleButton:hover {
     font-weight: bold;
 }
+
+.fc-event {
+    cursor: pointer;
+}
+
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
