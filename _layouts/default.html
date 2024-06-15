@@ -7,6 +7,7 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/51eb70003d.js" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -78,17 +79,42 @@
                 <li><a class="dropdown-item" href="#" style="color: #543310">儀器查詢</a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #543310">Disabled</a>
             </li>
+           
           </ul>
-          <form class="d-flex">
+          <form class="d-flex" >
             <input class="form-control " type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light custom-border-color" type="submit"
-              style="color: #543310">Search</button>
+              style="color: #543310 ">Search</button>
           </form>
+          
         </div>
+        
       </div>
+      <!-- Button trigger modal -->
+
+  <i class="fa-regular fa-circle-user me-3" data-bs-toggle="modal" data-bs-target="#exampleModal" style="font-size:24px;color:#543310"></i>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">使用者資訊</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        使用者帳號：<br>
+        目前為登入狀態，是否要登出並跳回主畫面？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登出</button>
+        <button type="button" class="btn btn-primary">留下</button>
+      </div>
+    </div>
+  </div>
+</div>
+      
     </nav>
   </div>
 
