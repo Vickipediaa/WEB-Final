@@ -16,8 +16,6 @@ permalink: "/register"
     }
 
     .content {
-        /* height: 700px; */
-        /* 固定高度 */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -30,19 +28,13 @@ permalink: "/register"
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         margin-top: 20px;
-        /* 增加上方的間距 */
         height: 700px;
-        /* 固定高度 */
     }
 
     .form-container {
         width: 100%;
         max-width: 600px;
-        /* 增加最大寬度 */
-        /* height: 700px; */
-        /* 固定高度 */
         padding: 50px;
-        /* 增加內間距 */
         border: 1px solid #ddd;
         border-radius: 5px;
         background: white;
@@ -63,7 +55,7 @@ permalink: "/register"
         text-decoration: none;
         color: #333;
         border-bottom: 2px solid transparent;
-        display: inline-block; /* 修改：讓tab按鈕成為行內元素 */
+        display: inline-block;
     }
 
     .box_tab-link.active {
@@ -85,6 +77,28 @@ permalink: "/register"
         flex-direction: column;
         justify-content: center;
     }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        width: 30%;
+        margin-right: 10px;
+    }
+
+    .form-group input {
+        width: 70%;
+        padding: 5px;
+    }
+
+    .form-options {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 </style>
 
 <div class="container-fluid align-items-center justify-content-center">
@@ -100,51 +114,39 @@ permalink: "/register"
                 </div>
 
                 <div id="login" class="tab-content active">
-
                     <form action="/login" method="post" class="form-body">
-
-                        <label for="login-email">* 電子郵件</label>
-
-                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
-
-                        <label for="login-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;</label>
-
-                        <input type="password" id="login-password" name="password" required><br><br>
-
-                        <div class="form-options">
-
-                            <label for="remember-me">
-
-                                <input type="checkbox" id="remember-me" name="remember-me"> 保持登入狀態
-
-                            </label><br><br>
-
-                            <a href="#" class="forgot-password">忘記密碼？</a>
-
+                        <div class="form-group">
+                            <label for="login-email">* 電子郵件</label>
+                            <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw" required>
                         </div>
-
+                        <div class="form-group">
+                            <label for="login-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;</label>
+                            <input type="password" id="login-password" name="password" required>
+                        </div>
+                        <div class="form-options">
+                            <label for="remember-me">
+                                <input type="checkbox" id="remember-me" name="remember-me"> 保持登入狀態
+                            </label>
+                            <a href="#" class="forgot-password">忘記密碼？</a>
+                        </div>
                         <button type="submit" class="form-button">登入</button>
-
                     </form>
-
                 </div>
 
                 <div id="register" class="tab-content">
-
                     <form action="/register" method="post" class="form-body">
-
-                        <label for="reg-email">* 電子郵件</label>
-
-                        <input type="email" id="reg-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
-
-                        <label for="reg-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;&nbsp;</label>
-
-                        <input type="password" id="reg-password" name="password" required><br><br>
-
-                        <label for="confirm-password">* 確認密碼&nbsp;</label>
-
-                        <input type="password" id="confirm-password" name="confirm-password" required><br><br>
-
+                        <div class="form-group">
+                            <label for="reg-email">* 電子郵件</label>
+                            <input type="email" id="reg-email" name="email" placeholder="@m365.fju.edu.tw" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;&nbsp;</label>
+                            <input type="password" id="reg-password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">* 確認密碼&nbsp;</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
                         <button type="submit" class="form-button">註冊</button>
                     </form>
                 </div>
