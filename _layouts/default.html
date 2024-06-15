@@ -17,9 +17,7 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!--日曆-->
-
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
-
 
   <!--backADMIN-datable cdn -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -44,17 +42,13 @@
 
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-</head>
-
+  <style>
+    {% include style.css %}
+  </style>
 </head>
 
 <body>
-  <!--nav bar start-->
-<<<<<<< HEAD
-  <div style="background-color:#F5EFE7;">
-=======
-  <div style="background-color:#F5EFE7; >
->>>>>>> 339274b160fab8ac5d76d411afb49df2f47de66e
+  <div class="sticky-top" style="background-color:#F5EFE7; ">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" style="color: #543310">輔大貴重儀器預約系統</a>
@@ -99,75 +93,40 @@
   </div>
 
 
-  <ul id=menu style="z-index: 5; background: hsla(36, 49%, 85%, 0.7); color: white;
-  font-weight: bold;
-  opacity: 60%;
-  font-size: large;
-  text-align: left;
-  border: solid hsla(35, 66%, 65%, 0.5);
-  border-right: none;
-  padding: 0.5em 0.5em 0.5em 2.5em;
-  box-shadow: 0 1px 3px black;
-  border-radius: 3em 0.5em 0.5em 3em;">
+  <ul id="menu">
     <li><a href="#L384">Section 1</a>
     <li><a href="#details">Section 2</a>
     <li><a href="#FAQ">Section 3</a>
   </ul>
-  <style>
-    #menu {
-      position: fixed;
-      right: 0;
-      bottom: 30%;
-      width: 8em;
-      margin-top: -2.5em;
-    }
-  </style>
 
   <div style="top: 100px;">
     {{ content }}
   </div>
 
   <!-- Footer Start -->
-  <footer style="text-align: center;padding: 5px;background-color: #D8C4B6 ;color: #543310">
+  <footer>
     Designed by
-    <a class=" border-bottom" href="#" style="color:#322C2B">輔仁大學資管一甲</a></p>
+    <span style="color:#322C2B">輔仁大學資管一甲</span>。<a data-bs-toggle="collapse" href="#collapseExample"
+      id="collapseExampleButton" role="button" aria-expanded="false" aria-controls="collapseExample">聯絡我們</a></p>
+    <div class="collapse" id="collapseExample">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-12">
+            <div class="card card-body">
+              <ul>
+                <li>242 新北市新莊區中正路510號利瑪竇大樓LM306</li>
+                <li> 大學部秘書TEL：+886-2-2905-2666</li>
+                <li> 碩士班秘書TEL：+886-2-2905-2940</li>
+                <li> 碩職班秘書TEL：+886-2-2905-2626</li>
+                <li> FAX：+886-2-2905-2182</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
   <!-- Footer End -->
-
-  <style>
-    .form-control:focus {
-      box-shadow: 5px -5px 5px rgb(235, 227, 223);
-      /* 移除藍色陰影 */
-      border-color: #543310;
-      /* 設定邊框顏色 */
-    }
-
-    .btn-outline-success {
-      border-color: #543310;
-      /* 設定按鈕邊框顏色 */
-      color: #ebe3df;
-    }
-
-    .btn-outline-success:hover {
-      border-color: #543310;
-      /* 設定按鈕在 hover 時的邊框顏色 */
-      color: #543310;
-    }
-
-    .btn-outline-success:focus,
-    .btn-outline-success:active {
-      box-shadow: 0px 0px rgb(235, 227, 223);
-      /* 自訂按下按鈕時的陰影 */
-      border-color: #543310;
-      /* 設定按下按鈕時的邊框顏色 */
-      color: #543310;
-      /* 設定按下按鈕時的文字顏色 */
-    }
-
-    .custom-border-color {
-      border-color: #543310;
-    }
-  </style>
 
   <!--回到頂端-->
   <button type="button" id="BackTop" class="toTop-arrow"></button>
@@ -185,49 +144,10 @@
       }).scroll();
     });
   </script>
-  <style>
-    /* 40px */
-    .toTop-arrow {
-      width: 2.5rem;
-      height: 2.5rem;
-      padding: 0;
-      margin: 0;
-      border: 0;
-      border-radius: 33%;
-      opacity: 0.6;
-      background: #000;
-      cursor: pointer;
-      position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      display: none;
-    }
 
-    .toTop-arrow::before,
-    .toTop-arrow::after {
-      width: 18px;
-      height: 5px;
-      border-radius: 3px;
-      background: #f90;
-      position: absolute;
-      content: "";
-    }
-
-    .toTop-arrow::before {
-      transform: rotate(-45deg) translate(0, -50%);
-      left: 0.5rem;
-    }
-
-    .toTop-arrow::after {
-      transform: rotate(45deg) translate(0, -50%);
-      right: 0.5rem;
-    }
-
-    .toTop-arrow:focus {
-      outline: none;
-    }
-  </style>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,299 +1,187 @@
 ---
 layout: default
 title: 首頁
-permalink: /indexs
+permalink: /index
+data:
+ - name: 高階13色流式細胞儀 
+   nameEN: LSR II Flow Cytometer
+   img: https://media.beckman.com/-/media/flow-cytometry/products/instruments/dxflex/flow-cytometer-dxflex-1.jpg?rev=07c4b750319b44aab1aaa1cf8439121b
+   link: "javascript: void(0)"
+ - name: 類流式影像自動擷取定量系統
+   nameEN: TissueFAXS
+   img: https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M
+   link: "javascript: void(0)"
+ - name: TissueFAXS分析軟體
+   nameEN: TissueFAXS Analysis Software
+   img: https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M
+   link: "javascript: void(0)"
+ - name: 雷射共軛焦顯微鏡
+   nameEN: FV 1000 Confocal Microscope
+   img: https://www1.cgmh.org.tw/intr/intr5/c6s210/images/%E5%85%B1%E8%BB%9B%E7%84%A6%E9%A1%AF%E5%BE%AE%E9%8F%A1_1_clip_image001.jpg
+   link: "javascript: void(0)"
+ - name: 雷射共軛焦顯微鏡
+   nameEN: LSM 700 Confocal Microscope
+   img: https://live.staticflickr.com/7043/6908567127_efc1715fd7_h.jpg
+   link: "javascript: void(0)"
+ - name: 細胞內離子偵測系統
+   nameEN: Cell^R Excellence System
+   img: https://crrd.kmu.edu.tw/images/fancybox/cellr/cellrex2big.jpg
+   link: "javascript: void(0)"
+ - name: 正立螢光顯微鏡
+   nameEN: AxioPlan2 Upright
+   img: https://www.bostonind.com/image/cache/catalog/products_2023/ZeissAxioplan2(6)-800x600w.jpg.webp
+   link: "javascript: void(0)"
+ - name: 螢光共振能量轉移顯微系統
+   nameEN: Leica M205FA Fluorescence
+   img: https://www.major.com.tw/webfiles/79bede13-2f17-4748-82e9-7ec10dff3dd4.png
+   link: "javascript: void(0)"
+ - name: 多層次螢光影像擷取與分析系統
+   nameEN: ImageXpress
+   img: https://www.kimforest.com/upload/product/pic/20190530120432hty.png
+   link: "javascript: void(0)"
+ - name: 多層次螢光影像擷取與分析系統
+   nameEN: Offline Analysis System
+   img: https://www.moleculardevices.com/media_11641411b16d0c432b2b099ea0d25df9845cf6233.jpeg?width=750&format=jpeg&optimize=medium
+   link: "javascript: void(0)"
+ - name: 高階三維重建影像分析軟體
+   nameEN: Imaris
+   img: https://crrd.kmu.edu.tw/images/test/5b9897d7-158d-41b6-877a-e6a2afd53394_web.jpg
+   link: "javascript: void(0)"
+ - name: 核磁共振儀
+   nameEN: Varian-NMR-600MHz
+   img: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAZPr6pOsohCROM7lLA-w3V4bprXXoEBjo3Q&s
+   link: "javascript: void(0)"
 ---
-<style>
-/**/
-.text-center{
-  margin-top: 20px;
-}
-  /*查看詳情的按鈕*/
-  
-  .ReserveBtn {
-  position: relative;
-  color: #111111;
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  padding: 12px 10px; /* 調整按鈕的內邊距 */
-  height: 30px; /* 設定按鈕的高度 */
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 50px;
-}
-.ReserveBtn:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 28px;
-  width: 56px;
-  height: 30px;
-  transition: all 0.3s ease;
-}
-.ReserveBtn span {
-  position: relative;
-  z-index: 1;
-}
 
-.ReserveBtn:hover:before {
-  width: 130%;
-  background: rgb(235, 227, 223);
-}
-.ReserveBtn:hover svg {
-  transform: translateX(0);
-}
-.ReserveBtn:hover,
-.ReserveBtn:focus {
-  color: #111111;
-}
-.ReserveBtn:active {
-  color: #111111;
-  transform: scale(0.96);
-}
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item" style="color:  #543310;">首頁</li>
+      <li class="breadcrumb-item active" aria-current="page"><a href="#" style="color:rgb(79, 112, 156) ;">儀器查詢</a></li>
+    </ol>
+  </nav>
 
-/*img*/
-.img-fluid{
-  width: 156px; 
-  height: 100px;
-}
-</style>
-
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item" style="color:  #543310;">首頁</li>
-    <li class="breadcrumb-item active" aria-current="page"><a href="#" style="color:rgb(79, 112, 156) ;">儀器查詢</a></li>
-  </ol>
-</nav>
-
-<div class="container">
-  <div class="row" >
-    <h3 style="text-align: center; color:rgb(79, 112, 156); font-weight: bold;">儀器查詢</h3>
-  </div>
-
-  <div class="row" style="margin-top: 30px; margin-bottom: 30px; color:  #543310;" >
-    <select>
-      <option>查詢類別</option>
-      <option>儀器</option>
-      <option>系統軟體</option>
-      <option>顯微鏡</option>
-    </select>
-  </div>
-  <div class="row" style="margin-bottom: 30px;color:  #543310;">
-    <select>
-      <option>尋找儀器</option>
-      <option>高階13色流式細胞儀-LSR II Flow Cytometer</option>
-      <option>類流式影像自動擷取定量系統-TissueFAXS</option>
-      <option>TissueFAXS分析軟體</option>
-      <option>雷射共軛焦顯微鏡-FV 1000 Confocal Microscope</option>
-      <option>雷射共軛焦顯微鏡-LSM 700 Confocal Microscope</option>
-      <option>細胞內離子偵測系統-Cell^R Excellence System</option>
-      <option>正立螢光顯微鏡-AxioPlan2 Upright</option>
-      <option>螢光共振能量轉移顯微系統-Leica M205FA Fluorescence</option>
-      <option>多層次螢光影像擷取與分析系統-ImageXpress</option>
-      <option>多層次螢光影像擷取與分析系統-離線分析系統</option>
-      <option>高階三維重建影像分析軟體-Imaris</option>
-      <option>核磁共振儀-Varian-NMR-600MHz</option>
-    </select>
-  </div>
-  <div class="row" style="background-color: rgba(108, 143, 176,0.3);">
-    <div class="col col-style" >
-      <h6 class="text-center" >高階13色流式細胞儀 <br>LSR II Flow Cytometer</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://media.beckman.com/-/media/flow-cytometry/products/instruments/dxflex/flow-cytometer-dxflex-1.jpg?rev=07c4b750319b44aab1aaa1cf8439121b"
-          alt="高階13色流式細胞儀" >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
+  <div class="container">
+    <div class="row">
+      <h3 style="text-align: center; color:rgb(79, 112, 156); font-weight: bold;">儀器查詢</h3>
     </div>
 
-    <div class="col col-style" >
-      <h6 class="text-center">類流式影像自動擷取定量系統<br>TissueFAXS</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M"
-          alt="類流式影像自動擷取定量系統" >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
+    <div class="row" style="margin-top: 30px; margin-bottom: 30px; color:  #543310;">
+      <select style="color: #543310;">
+        <option style="color: #111111;">查詢類別</option>
+        <option style="color: #111111;">儀器</option>
+        <option style="color: #111111;">系統軟體</option>
+        <option style="color: #111111;">顯微鏡</option>
+      </select>
     </div>
-
-    <div class="col col-style" >
-      <h6 class="text-center">TissueFAXS分析軟體<br> &nbsp</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M"
-          alt="TissueFAXS分析軟體"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
+    <div class="row" style="margin-bottom: 30px;color:  #543310;">
+      <select style="color: #543310;">
+        <option style="color: #111111;">尋找儀器</option>
+        <option style="color: #111111;">高階13色流式細胞儀-LSR II Flow Cytometer</option>
+        <option style="color: #111111;">類流式影像自動擷取定量系統-TissueFAXS</option>
+        <option style="color: #111111;">TissueFAXS分析軟體</option>
+        <option style="color: #111111;">雷射共軛焦顯微鏡-FV 1000 Confocal Microscope</option>
+        <option style="color: #111111;">雷射共軛焦顯微鏡-LSM 700 Confocal Microscope</option>
+        <option style="color: #111111;">細胞內離子偵測系統-Cell^R Excellence System</option>
+        <option style="color: #111111;">正立螢光顯微鏡-AxioPlan2 Upright</option>
+        <option style="color: #111111;">螢光共振能量轉移顯微系統-Leica M205FA Fluorescence</option>
+        <option style="color: #111111;">多層次螢光影像擷取與分析系統-ImageXpress</option>
+        <option style="color: #111111;">多層次螢光影像擷取與分析系統-離線分析系統</option>
+        <option style="color: #111111;">高階三維重建影像分析軟體-Imaris</option>
+        <option style="color: #111111;">核磁共振儀-Varian-NMR-600MHz</option>
+      </select>
     </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">雷射共軛焦顯微鏡 <br>FV 1000 Confocal Microscope</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://www1.cgmh.org.tw/intr/intr5/c6s210/images/%E5%85%B1%E8%BB%9B%E7%84%A6%E9%A1%AF%E5%BE%AE%E9%8F%A1_1_clip_image001.jpg"
-          alt="雷射共軛焦顯微鏡"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
+    <div class="row" style="background-color: rgba(108, 143, 176,0.3);">
+      {% for item in page.data %}
+        <div class="col-12 col-md-4 col-lg-3 col-style">
+          <h6 class="text-center">{{ item.name }} <br>{{ item.nameEN }}</h6>
+          <div class="d-flex justify-content-center">
+            <img class="img-fluid" src="{{ item.img }}" alt="{{ item.name }}">
+          </div>
+          <a href="{{ item.link }}" class="ReserveBtn">
+            <span style="color: #213555;">查看詳情</span>
+            <svg width="13px" height="10px" viewBox="0 0 13 10">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </a>
+        </div>
+      {% endfor %}
     </div>
-  </div>
-
-  <div class="row" style="background-color: rgba(108, 143, 176,0.3);">
-    <div class="col col-style">
-      <h6 class="text-center" >雷射共軛焦顯微鏡 <br>LSM 700 Confocal Microscope</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid" src="https://live.staticflickr.com/7043/6908567127_efc1715fd7_h.jpg" alt="雷射共軛焦顯微鏡"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-      </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">細胞內離子偵測系統 <br>Cell^R Excellence System</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://crrd.kmu.edu.tw/images/fancybox/cellr/cellrex2big.jpg"
-          alt="細胞內離子偵測系統"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">正立螢光顯微鏡 <br>AxioPlan2 Upright</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://www.bostonind.com/image/cache/catalog/products_2023/ZeissAxioplan2(6)-800x600w.jpg.webp"
-          alt="正立螢光顯微鏡"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">螢光共振能量轉移顯微系統 <br>Leica M205FA Fluorescence</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid" src="https://www.major.com.tw/webfiles/79bede13-2f17-4748-82e9-7ec10dff3dd4.png"
-          alt="螢光共振能量轉移顯微系統"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-  <div class="row" style="background-color: rgba(108, 143, 176,0.3);">
-    <div class="col col-style">
-      <h6 class="text-center">多層次螢光影像擷取與分析系統 <br>ImageXpress</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid" src="https://www.kimforest.com/upload/product/pic/20190530120432hty.png"
-          alt="多層次螢光影像擷取與分析系統"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">多層次螢光影像擷取與分析系統<br>離線分析系統</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://www.moleculardevices.com/media_11641411b16d0c432b2b099ea0d25df9845cf6233.jpeg?width=750&format=jpeg&optimize=medium"
-          alt="多層次螢光影像擷取與分析系統"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">高階三維重建影像分析軟體 <br>Imaris</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid" src="https://crrd.kmu.edu.tw/images/test/5b9897d7-158d-41b6-877a-e6a2afd53394_web.jpg"
-          alt="高階三維重建影像分析軟體"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-    </div>
-
-    <div class="col col-style">
-      <h6 class="text-center">核磁共振儀 <br>Varian-NMR-600MHz</h6>
-      <div class="d-flex justify-content-center">
-        <img class="img-fluid"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAZPr6pOsohCROM7lLA-w3V4bprXXoEBjo3Q&s" alt="核磁共振儀"  >
-      </div>
-      <a href="javascript: void(0)" class="ReserveBtn">
-        <span style="color: #213555;">查看詳情</span>
-        <svg width="13px" height="10px" viewBox="0 0 13 10">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-        </svg>
-      </a>
-      </div>
+    
   </div>
 </div>
+
+
+<style>
+  /**/
+  .text-center {
+    margin-top: 20px;
+  }
+
+  /*查看詳情的按鈕*/
+
+  .ReserveBtn {
+    position: relative;
+    color: #111111;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 12px 10px;
+    /* 調整按鈕的內邊距 */
+    height: 30px;
+    /* 設定按鈕的高度 */
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+
+  .ReserveBtn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    width: 56px;
+    height: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .ReserveBtn span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ReserveBtn:hover:before {
+    width: 130%;
+    background: rgb(240, 233, 197);
+  }
+
+  .ReserveBtn:hover svg {
+    transform: translateX(0);
+  }
+
+  .ReserveBtn:hover,
+  .ReserveBtn:focus {
+    color: #111111;
+  }
+
+  .ReserveBtn:active {
+    color: #111111;
+    transform: scale(0.96);
+  }
+
+  /*img*/
+  .img-fluid {
+    width: 156px;
+    height: 100px;
+  }
+</style>
