@@ -46,6 +46,12 @@
   <style>
     {% include style.css %}
   </style>
+
+<style>/*解決 modal 灰屏*/
+  .modal-backdrop {
+    display: none;
+  }
+</style>
 </head>
 
 <body>
@@ -85,6 +91,7 @@
                       <div class="loginGroup">
                         <label> 管理者密碼
                           <input type="email" id="userID" placeholder="請輸入密碼">
+                          
                         </label>
                       </div>
                     
@@ -133,16 +140,14 @@
         目前為登入狀態，是否要登出並跳回主畫面？
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">登出</button>
-        <button type="button" class="btn btn-primary">留下</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="location.href='firstindex'">登出</button><!-- 修改的地方，新增 onclick="location.href='firstindex'" -->
+        <button type="button" class="btn btn-primary"data-bs-dismiss="modal">留下</button>
       </div>
     </div>
   </div>
 </div>
-      
     </nav>
   </div>
-
 
 
 
