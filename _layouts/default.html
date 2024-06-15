@@ -95,35 +95,35 @@
       <i class="fa-regular fa-circle-user me-3 fc-event" data-bs-toggle="modal" data-bs-target="#user"
         style="font-size:24px;color:#543310"></i>
     </nav>
+  </div>
+  <div style="top: 100px;">
+    {{ content }}
+  </div>
 
-    <div style="top: 100px;">
-      {{ content }}
-    </div>
-
-    <!-- Footer Start -->
-    <footer>
-      Designed by
-      <span style="color:#322C2B">輔仁大學資管一甲</span>。<a data-bs-toggle="collapse" href="#collapseExample"
-        id="collapseExampleButton" role="button" aria-expanded="false" aria-controls="collapseExample">聯絡我們</a></p>
-      <div class="collapse" id="collapseExample">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-5 col-12">
-              <div class="card card-body " style="background-color: rgba(255, 255, 255, 0.65);">
-                <ul align="left">
-                  <li style="color: rgb(49, 47, 47)">FAX：+886-2-2905-2182</li>
-                  <li style="color: rgb(49, 47, 47)"> 大學部秘書TEL：+886-2-2905-2666</li>
-                  <li style="color: rgb(49, 47, 47)"> 碩士班秘書TEL：+886-2-2905-2940</li>
-                  <li style="color: rgb(49, 47, 47)"> 碩職班秘書TEL：+886-2-2905-2626</li>
-                  <li style="color: rgb(49, 47, 47)">242 新北市新莊區中正路510號利瑪竇大樓LM306 </li>
-                </ul>
-              </div>
+  <!-- Footer Start -->
+  <footer>
+    Designed by
+    <span style="color:#322C2B">輔仁大學資管一甲</span>。<a data-bs-toggle="collapse" href="#collapseExample"
+      id="collapseExampleButton" role="button" aria-expanded="false" aria-controls="collapseExample">聯絡我們</a></p>
+    <div class="collapse" id="collapseExample">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-12">
+            <div class="card card-body " style="background-color: rgba(255, 255, 255, 0.65);">
+              <ul align="left">
+                <li style="color: rgb(49, 47, 47)">FAX：+886-2-2905-2182</li>
+                <li style="color: rgb(49, 47, 47)"> 大學部秘書TEL：+886-2-2905-2666</li>
+                <li style="color: rgb(49, 47, 47)"> 碩士班秘書TEL：+886-2-2905-2940</li>
+                <li style="color: rgb(49, 47, 47)"> 碩職班秘書TEL：+886-2-2905-2626</li>
+                <li style="color: rgb(49, 47, 47)">242 新北市新莊區中正路510號利瑪竇大樓LM306 </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </footer>
-    <!-- Footer End -->
+    </div>
+  </footer>
+  <!-- Footer End -->
 
   </div>
   <div class="modal fade" id="back" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -168,28 +168,28 @@
         </div>
       </div>
     </div>
-  </div>
-  
-  <!--回到頂端-->
-  <button type="button" id="BackTop" class="toTop-arrow"></button>
-  <script>
-    $(function () {
-      $('#BackTop').click(function () {
-        $('html,body').animate({ scrollTop: 0 }, 333);
-      });
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-          $('#BackTop').fadeIn(222);
-        } else {
-          $('#BackTop').stop().fadeOut(222);
-        }
-      }).scroll();
-    });
-  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
+
+    <!--回到頂端-->
+    <button type="button" id="BackTop" class="toTop-arrow"></button>
+    <script>
+      $(function () {
+        $('#BackTop').click(function () {
+          $('html,body').animate({ scrollTop: 0 }, 333);
+        });
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $('#BackTop').fadeIn(222);
+          } else {
+            $('#BackTop').stop().fadeOut(222);
+          }
+        }).scroll();
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
