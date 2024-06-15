@@ -5,7 +5,7 @@ permalink: /register
 ---
 
 <style>
-    /* 基本樣式設定 */
+/* 基本樣式設定 */
 .container {
     /*max-width: 800px;*/
     margin: auto;
@@ -38,7 +38,6 @@ permalink: /register
     display: block;
 }
 
-
 .form-container {
     /*max-width: 800px;*/
     width: 80%;
@@ -70,49 +69,77 @@ permalink: /register
 .form-button:hover {
     background-color: #333;
 }
-
 </style>
+
+
 
 <div class="container">
     <div class="row align-items-center justify-content-center">
         <div class="col-md-6">
             <div id="chart_div" style="width: 100%; height: 725px;"></div>
         </div>
+
         <div class="col-md-6 ">
             <div class="form-container">
                 <div class="form-header">
                     <a href="javascript:void(0)" class="box_tab-link active" onclick="openTab(event, 'login')">登入</a>
                     <a href="javascript:void(0)" class="box_tab-link" onclick="openTab(event, 'register')">註冊</a>
                 </div>
-                <div id="login" class="tab-content active " >  <!--d-grid-->
+
+                <div id="login" class="tab-content active "> <!--d-grid-->
+
                     <form action="/login" method="post">
+
                         <label for="login-email">* 電子郵件</label>
-                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
+
+                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw"
+                            required><br><br>
+
                         <label for="login-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;</label>
+
                         <input type="password" id="login-password" name="password" required><br><br>
+
                         <div class="form-options">
+
                             <label for="remember-me">
+
                                 <input type="checkbox" id="remember-me" name="remember-me"> 保持登入狀態
+
                             </label><br><br>
+
                             <a href="#" class="forgot-password">忘記密碼？</a>
+
                         </div>
+
                         <button type="submit" class="form-button">登入</button>
+
                     </form>
+
                 </div>
+
                 <div id="register" class="tab-content">
+
                     <form action="/register" method="post">
+
                         <label for="reg-email">* 電子郵件</label>
+
                         <input type="email" id="reg-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
+
                         <label for="reg-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;&nbsp;</label>
+
                         <input type="password" id="reg-password" name="password" required><br><br>
+
                         <label for="confirm-password">* 確認密碼&nbsp;</label>
+
                         <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
                         <button type="submit" class="form-button">註冊</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <script type="text/javascript">
@@ -129,24 +156,24 @@ permalink: /register
         data.addColumn('number', '雷射共軛焦顯微鏡');
 
         data.addRows([
-            [1, 37, 40,46,44,47],
-            [2, 30, 39,23,14,29],
-            [3, 25, 37,17,35,19],
-            [4, 11, 18,26,37,33],
-            [5, 11, 17,27,25,28],
-            [6, 8, 13,27,17,14],
-            [7, 7, 12,19,34,27],
-            [8, 12, 29,25,28,22],
-            [9, 16, 42,36,12,29],
-            [10, 12, 30,26,24,26],
-            [11, 5, 19,17,35,28],
-            [12, 6, 24,18,23,27],
+            [1, 17, 20, 16, 14, 17],
+            [2, 10, 19, 13, 14, 19],
+            [3, 25, 17, 17, 15, 9],
+            [4, 11, 18, 16, 17, 13],
+            [5, 11, 17, 17, 25, 28],
+            [6, 8, 13, 12, 17, 14],
+            [7, 7, 12, 19, 14, 27],
+            [8, 12, 9, 15, 28, 22],
+            [9, 16, 12, 16, 12, 29],
+            [10, 12, 10, 26, 24, 26],
+            [11, 5, 13, 17, 15, 28],
+            [12, 6, 14, 18, 23, 27],
         ]);
 
         var options = {
             chart: {
                 title: '每月儀器使用統計圖',
-                subtitle: 'in millions of dollars (USD)'
+                /*subtitle: 'in millions of dollars (USD)'*/
             },
             axes: {
                 x: {
