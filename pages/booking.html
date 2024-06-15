@@ -10,10 +10,30 @@ permalink: /booking
     <div class="row">
 
         <div class="col">
-            <div>
-                <img src="https://vir.nstc.gov.tw/Home/GetFile?filepath=upload/91d2a48144714aa49e4127f1867aec25.PNG">
-            </div>
+            {% for item in site.data %}
+                <div id="{{ item.id }}">  
+                    <img src="{{ item.img }}" style="width:75%;">
+                </div>
+            {% endfor %}
         </div>
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const itemParam = urlParams.get('item');
+            const itemIDList = [{% for item in site.data %}"{{ item.id }}"{% if forloop.last == false %}, {% endif %} {% endfor %}];
+            let status = false;
+            itemIDList.forEach(item => {
+                if (item == itemParam) {
+                    $(`#${item}`).show();
+                    status = true;
+                } else {
+                    $(`#${item}`).hide();
+                }
+            });
+            if (status == false) {
+                $(`#NOITEM`).show();
+            }
+        </script>
 
         <div class="col">
             <div class="formbold-main-wrapper">
@@ -136,7 +156,7 @@ permalink: /booking
                                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="11" cy="11" r="10.5" fill="white" stroke="#DDE3EC" />
-                                            <g clip-path="url(#clip0_1667_1314)">
+                                            <g clip-path="">
                                                 <path
                                                     d="M9.83343 12.8509L15.1954 7.48828L16.0208 8.31311L9.83343 14.5005L6.12109 10.7882L6.94593 9.96336L9.83343 12.8509Z"
                                                     fill="#536387" />
@@ -470,6 +490,11 @@ permalink: /booking
                     window.location.href = "http://127.0.0.1:4000/indexs";
                 }
             })
+
+            // 線下付款按鈕
+        $('.formbold-confirm-btn:not(.active)').click(function() {
+            alert("請列印繳費單並完成付款");
+        });
 
 
         </script>

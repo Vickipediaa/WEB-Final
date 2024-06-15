@@ -46,7 +46,7 @@ permalink: /reservation/
     </div>
     <div class="row justify-content-center mb-3">
         <div class="col-lg-6 col-12 d-grid">
-            <a href="../booking" class="btn btn-outline-primary">進入預約</a>
+            <a href="#" id="intoBooking" class="btn btn-outline-primary">進入預約</a>
         </div>
     </div>
 </div>
@@ -170,6 +170,9 @@ permalink: /reservation/
     if (status == false) {
         $(`#NOITEM`).show();
     }
+
+    $('#intoBooking').attr('href', `/booking?item=${itemParam}`);
+    
 </script>
 
 <!-- fullcalendar origin code -->
