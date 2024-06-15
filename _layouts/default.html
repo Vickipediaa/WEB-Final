@@ -48,7 +48,7 @@
   </style>
 </head>
 
-<body>
+<body style="background-color: #f8f9fa;">
   <div class="sticky-top" style="background-color:#F5EFE7; ">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="d-flex justify-content-center">
@@ -133,7 +133,8 @@
 
           <div class="loginGroup">
             <label> 管理者密碼
-              <input type="email" id="userID" placeholder="請輸入密碼">
+              <input type="email" id="userID" placeholder="請輸入密碼" data-bs-toggle="popover" data-bs-trigger="focus" title="提示" data-bs-content="請填寫這個欄位。"> <!-- 修改的地方，新增 data-bs-toggle="popover" data-bs-trigger="focus" title="密碼提示" data-bs-content="請填寫密碼才能登入" -->
+            </label>>
 
             </label>
           </div>
@@ -141,7 +142,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
-          <a type="button" class="btn btn-primary" href="/backADMIN">登入</a>
+          <button type="button" class="btn btn-primary" href="../backADMIN" >登入</button>
         </div>
       </div>
     </div>
