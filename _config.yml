@@ -1,23 +1,3 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Your awesome title
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -28,11 +8,71 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
-
-# Build settings
-theme: minima
 plugins:
   - jekyll-feed
+
+
+data:
+ - name: "高階13色流式細胞儀"
+   nameEN: "LSR II Flow Cytometer"
+   img: "https://media.beckman.com/-/media/flow-cytometry/products/instruments/dxflex/flow-cytometer-dxflex-1.jpg?rev=07c4b750319b44aab1aaa1cf8439121b"
+   link: "javascript: void(0)"
+   category: "儀器"
+ - name: "類流式影像自動擷取定量系統"
+   nameEN: "TissueFAXS"
+   img: "https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M"
+   link: "javascript: void(0)"
+   category: "儀器"
+ - name: "TissueFAXS分析軟體"
+   nameEN: "TissueFAXS Analysis Software"
+   img: "https://lh5.googleusercontent.com/proxy/k3P14K_CbawFisWuRColFwsWcbNgJGv8d3V6QFhnBBo_6csGAYpgzgHiA36e9WdTrlqKJmgWc2grKTQDzAiUZnXdadjMH9M"
+   link: "javascript: void(0)"
+   category: "系統軟體"
+ - name: "雷射共軛焦顯微鏡"
+   nameEN: "FV 1000 Confocal Microscope"
+   img: "https://www1.cgmh.org.tw/intr/intr5/c6s210/images/%E5%85%B1%E8%BB%9B%E7%84%A6%E9%A1%AF%E5%BE%AE%E9%8F%A1_1_clip_image001.jpg"
+   link: "javascript: void(0)"
+   category: "顯微鏡"
+ - name: "雷射共軛焦顯微鏡"
+   nameEN: "LSM 700 Confocal Microscope"
+   img: "https://live.staticflickr.com/7043/6908567127_efc1715fd7_h.jpg"
+   link: "javascript: void(0)"
+   category: "顯微鏡"
+ - name: "細胞內離子偵測系統"
+   nameEN: "Cell^R Excellence System"
+   img: "https://crrd.kmu.edu.tw/images/fancybox/cellr/cellrex2big.jpg"
+   link: "javascript: void(0)"
+   category: "儀器"
+ - name: "正立螢光顯微鏡"
+   nameEN: "AxioPlan2 Upright"
+   img: "https://www.bostonind.com/image/cache/catalog/products_2023/ZeissAxioplan2(6)-800x600w.jpg.webp"
+   link: "javascript: void(0)"
+   category: "顯微鏡"
+ - name: "螢光共振能量轉移顯微系統"
+   nameEN: "Leica M205FA Fluorescence"
+   img: "https://www.major.com.tw/webfiles/79bede13-2f17-4748-82e9-7ec10dff3dd4.png"
+   link: "javascript: void(0)"
+   category: "顯微鏡"
+ - name: "多層次螢光影像擷取與分析系統"
+   nameEN: "ImageXpress"
+   img: "https://www.kimforest.com/upload/product/pic/20190530120432hty.png"
+   link: "javascript: void(0)"
+   category: "儀器"
+ - name: "多層次螢光影像擷取與分析系統"
+   nameEN: "Offline Analysis System"
+   img: "https://www.moleculardevices.com/media_11641411b16d0c432b2b099ea0d25df9845cf6233.jpeg?width=750&format=jpeg&optimize=medium"
+   link: "javascript: void(0)"
+   category: "系統軟體"
+ - name: "高階三維重建影像分析軟體"
+   nameEN: "Imaris"
+   img: "https://crrd.kmu.edu.tw/images/test/5b9897d7-158d-41b6-877a-e6a2afd53394_web.jpg"
+   link: "javascript: void(0)"
+   category: "系統軟體"
+ - name: "核磁共振儀"
+   nameEN: "Varian-NMR-600MHz"
+   img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAZPr6pOsohCROM7lLA-w3V4bprXXoEBjo3Q&s"
+   link: "javascript: void(0)"
+   category: "儀器"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

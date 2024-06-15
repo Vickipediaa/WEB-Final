@@ -1,88 +1,92 @@
 ---
 layout: default
-title: 註冊
-permalink: /register
+title: "註冊"
+permalink: "/register"
 ---
 
 <style>
-.container-fluid {
-            height: 100%;
-            padding: 0;
-        }
+    .container-fluid {
+        height: 100%;
+        padding: 0;
+    }
 
-        .content-wrapper {
-            margin: 40px 0; /* 增加上方和下方的間距 */
-        }
+    .content-wrapper {
+        margin: 40px 0;
+        /* 增加上方和下方的間距 */
+    }
 
-        .content {
-            height: 700px; /* 固定高度 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .content {
+        height: 700px;
+        /* 固定高度 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-        #chart_div {
-            width: 100%;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            margin-top: 20px; /* 增加上方的間距 */
-            height: 700px; /* 固定高度 */
-        }
+    #chart_div {
+        width: 100%;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 20px;
+        /* 增加上方的間距 */
+        height: 700px;
+        /* 固定高度 */
+    }
 
-        .form-container {
-            width: 100%;
-            max-width: 600px; /* 增加最大寬度 */
-            height: 700px; /* 固定高度 */
-            padding: 50px; /* 增加內間距 */
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex; /* 新增 */
-            flex-direction: column; /* 新增 */
-            justify-content: space-between; /*新增 */
-        }
+    .form-container {
+        width: 100%;
+        max-width: 600px;
+        /* 增加最大寬度 */
+        height: 700px;
+        /* 固定高度 */
+        padding: 50px;
+        /* 增加內間距 */
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 
-        .form-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            display: flex; /* 新增 */
-            flex-direction: column; /* 新增 */
-            justify-content: space-between; /* 新增 */
-        }
+    .form-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
 
-        .box_tab-link {
-            padding: 10px 20px;
-            cursor: pointer;
-            text-decoration: none;
-            color: #333;
-            border-bottom: 2px solid transparent;
-        }
+    .box_tab-link {
+        padding: 10px 20px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #333;
+        border-bottom: 2px solid transparent;
+        display: inline-block; /* 修改：讓tab按鈕成為行內元素 */
+    }
 
-        .box_tab-link.active {
-            border-bottom: 2px solid #800000;
-            color: #800000;
-        }
+    .box_tab-link.active {
+        border-bottom: 2px solid #800000;
+        color: #800000;
+    }
 
-        .tab-content {
-            display: none;
-        }
+    .tab-content {
+        display: none;
+    }
 
-        .tab-content.active {
-            display: block;
-        }
-        .form-body {
-            flex: 1; /* 新增 */
-            display: flex; /* 新增 */
-            flex-direction: column; /* 新增 */
-            justify-content: center; /* 新增 */
-        }
+    .tab-content.active {
+        display: block;
+    }
+
+    .form-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 </style>
-
-
 
 <div class="container-fluid align-items-center justify-content-center">
     <div class="row align-items-center justify-content-center content-wrapper">
@@ -96,14 +100,13 @@ permalink: /register
                     <a href="javascript:void(0)" class="box_tab-link" onclick="openTab(event, 'register')">註冊</a>
                 </div>
 
-                <div id="login" class="tab-content active "> <!--d-grid-->
+                <div id="login" class="tab-content active">
 
-                    <form action="/login" method="post" class="form-body"> <!-- 修改 -->
+                    <form action="/login" method="post" class="form-body">
 
                         <label for="login-email">* 電子郵件</label>
 
-                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw"
-                            required><br><br>
+                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
 
                         <label for="login-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;</label>
 
@@ -129,7 +132,7 @@ permalink: /register
 
                 <div id="register" class="tab-content">
 
-                    <form action="/register" method="post" class="form-body"> <!-- 修改 -->
+                    <form action="/register" method="post" class="form-body">
 
                         <label for="reg-email">* 電子郵件</label>
 
@@ -149,7 +152,6 @@ permalink: /register
             </div>
         </div>
     </div>
-
 </div>
 
 <script type="text/javascript">
@@ -183,7 +185,6 @@ permalink: /register
         var options = {
             chart: {
                 title: '每月儀器使用統計圖',
-                /*subtitle: 'in millions of dollars (USD)'*/
             },
             axes: {
                 x: {
