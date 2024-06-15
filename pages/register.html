@@ -45,7 +45,7 @@ permalink: "/register"
 
     .form-header {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; /* 修改 */
         margin-bottom: 20px;
     }
 
@@ -55,7 +55,8 @@ permalink: "/register"
         text-decoration: none;
         color: #333;
         border-bottom: 2px solid transparent;
-        display: inline-block;
+        width: 50%; /* 新增 */
+        text-align: center; /* 新增 */
     }
 
     .box_tab-link.active {
@@ -71,11 +72,33 @@ permalink: "/register"
         display: block;
     }
 
-    .form-body {
-        flex: 1;
+    .form-options {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .form-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .form-button:hover {
+        background-color: #333;
+    }
+
+    .form-body {
+        flex: 1; /* 新增 */
+        display: flex; /* 新增 */
+        flex-direction: column; /* 新增 */
+        justify-content: center; /* 新增 */
     }
 
     .form-group {
@@ -92,12 +115,6 @@ permalink: "/register"
     .form-group input {
         width: 70%;
         padding: 5px;
-    }
-
-    .form-options {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 </style>
 
@@ -120,7 +137,7 @@ permalink: "/register"
                             <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw" required>
                         </div>
                         <div class="form-group">
-                            <label for="login-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;</label>
+                            <label for="login-password">* 密碼</label>
                             <input type="password" id="login-password" name="password" required>
                         </div>
                         <div class="form-options">
@@ -140,11 +157,11 @@ permalink: "/register"
                             <input type="email" id="reg-email" name="email" placeholder="@m365.fju.edu.tw" required>
                         </div>
                         <div class="form-group">
-                            <label for="reg-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;&nbsp;</label>
+                            <label for="reg-password">* 密碼</label>
                             <input type="password" id="reg-password" name="password" required>
                         </div>
                         <div class="form-group">
-                            <label for="confirm-password">* 確認密碼&nbsp;</label>
+                            <label for="confirm-password">* 確認密碼</label>
                             <input type="password" id="confirm-password" name="confirm-password" required>
                         </div>
                         <button type="submit" class="form-button btn btn-dark">註冊</button>
