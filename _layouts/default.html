@@ -7,7 +7,9 @@
   <title>{{ page.title }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <!--register-flow chart cdn-->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.js"></script>
@@ -41,14 +43,18 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
 </head>
 
 </head>
 
 <body>
   <!--nav bar start-->
+<<<<<<< HEAD
+  <div style="background-color:#F5EFE7;">
+=======
   <div style="background-color:#F5EFE7; >
+>>>>>>> 339274b160fab8ac5d76d411afb49df2f47de66e
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" style="color: #543310">輔大貴重儀器預約系統</a>
@@ -70,8 +76,8 @@
                 後臺管理系統
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" style="color: #543310"></a></li>
-                <li><a class="dropdown-item" href="#" style="color: #543310"></a></li>
+                <li><a class="dropdown-item" href="#" style="color: #543310">1</a></li>
+                <li><a class="dropdown-item" href="#" style="color: #543310">2</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -84,47 +90,143 @@
           </ul>
           <form class="d-flex">
             <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light custom-border-color" type="submit" style="color: #543310">Search</button>
+            <button class="btn btn-outline-light custom-border-color" type="submit"
+              style="color: #543310">Search</button>
           </form>
         </div>
       </div>
     </nav>
   </div>
 
-<div style="top: 100px;">
-  {{ content }}
-</div>
+
+  <ul id=menu style="z-index: 5; background: hsla(36, 49%, 85%, 0.7); color: white;
+  font-weight: bold;
+  opacity: 60%;
+  font-size: large;
+  text-align: left;
+  border: solid hsla(35, 66%, 65%, 0.5);
+  border-right: none;
+  padding: 0.5em 0.5em 0.5em 2.5em;
+  box-shadow: 0 1px 3px black;
+  border-radius: 3em 0.5em 0.5em 3em;">
+    <li><a href="#L384">Section 1</a>
+    <li><a href="#details">Section 2</a>
+    <li><a href="#FAQ">Section 3</a>
+  </ul>
+  <style>
+    #menu {
+      position: fixed;
+      right: 0;
+      bottom: 30%;
+      width: 8em;
+      margin-top: -2.5em;
+    }
+  </style>
+
+  <div style="top: 100px;">
+    {{ content }}
+  </div>
 
   <!-- Footer Start -->
   <footer style="text-align: center;padding: 5px;background-color: #D8C4B6 ;color: #543310">
-    Designed by 
+    Designed by
     <a class=" border-bottom" href="#" style="color:#322C2B">輔仁大學資管一甲</a></p>
   </footer>
   <!-- Footer End -->
 
-<style>
-  .form-control:focus {
-      box-shadow:  5px -5px 5px rgb(235, 227, 223); /* 移除藍色陰影 */
-      border-color:#543310; /* 設定邊框顏色 */
+  <style>
+    .form-control:focus {
+      box-shadow: 5px -5px 5px rgb(235, 227, 223);
+      /* 移除藍色陰影 */
+      border-color: #543310;
+      /* 設定邊框顏色 */
     }
-  .btn-outline-success {
-    border-color: #543310; /* 設定按鈕邊框顏色 */
-    color:#ebe3df;
-  }
 
-  .btn-outline-success:hover {
-    border-color: #543310; /* 設定按鈕在 hover 時的邊框顏色 */
-    color:#543310;
-  }
-  .btn-outline-success:focus, .btn-outline-success:active {
-      box-shadow: 0px 0px rgb(235, 227, 223); /* 自訂按下按鈕時的陰影 */
-      border-color: #543310; /* 設定按下按鈕時的邊框顏色 */
-      color: #543310; /* 設定按下按鈕時的文字顏色 */
+    .btn-outline-success {
+      border-color: #543310;
+      /* 設定按鈕邊框顏色 */
+      color: #ebe3df;
     }
-  .custom-border-color{
-    border-color: #543310;
-  }
-</style>
+
+    .btn-outline-success:hover {
+      border-color: #543310;
+      /* 設定按鈕在 hover 時的邊框顏色 */
+      color: #543310;
+    }
+
+    .btn-outline-success:focus,
+    .btn-outline-success:active {
+      box-shadow: 0px 0px rgb(235, 227, 223);
+      /* 自訂按下按鈕時的陰影 */
+      border-color: #543310;
+      /* 設定按下按鈕時的邊框顏色 */
+      color: #543310;
+      /* 設定按下按鈕時的文字顏色 */
+    }
+
+    .custom-border-color {
+      border-color: #543310;
+    }
+  </style>
+
+  <!--回到頂端-->
+  <button type="button" id="BackTop" class="toTop-arrow"></button>
+  <script>
+    $(function () {
+      $('#BackTop').click(function () {
+        $('html,body').animate({ scrollTop: 0 }, 333);
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+          $('#BackTop').fadeIn(222);
+        } else {
+          $('#BackTop').stop().fadeOut(222);
+        }
+      }).scroll();
+    });
+  </script>
+  <style>
+    /* 40px */
+    .toTop-arrow {
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      border-radius: 33%;
+      opacity: 0.6;
+      background: #000;
+      cursor: pointer;
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      display: none;
+    }
+
+    .toTop-arrow::before,
+    .toTop-arrow::after {
+      width: 18px;
+      height: 5px;
+      border-radius: 3px;
+      background: #f90;
+      position: absolute;
+      content: "";
+    }
+
+    .toTop-arrow::before {
+      transform: rotate(-45deg) translate(0, -50%);
+      left: 0.5rem;
+    }
+
+    .toTop-arrow::after {
+      transform: rotate(45deg) translate(0, -50%);
+      right: 0.5rem;
+    }
+
+    .toTop-arrow:focus {
+      outline: none;
+    }
+  </style>
 
 </body>
 
