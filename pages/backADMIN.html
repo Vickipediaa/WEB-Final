@@ -90,10 +90,20 @@ permalink: /backADMIN
         text-decoration: none;
         font-weight: bold;
     }
+
+    .table-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .table {
+            width: 80%;
+            margin: auto;
+        }
 </style>
 
 
-<hea>
+<header>
     <h1>儀器租借系統後臺管理</h1>
     <nav class="navbar navbar-expand-lg navbar-dark justify-content-center" style="background-color: #333;">
         <div class="container-fluid ">
@@ -162,7 +172,7 @@ permalink: /backADMIN
         <h2>用戶管理</h2>
         <div>
             <button onclick="addUser()" class="btn btn-primary">新增用戶</button>
-            <table id="user-table" class="table table-striped">
+            <table id="user-table" class="table table-striped "style="width:80%" >
                 <thead>
                     <tr>
                         <th>姓名</th>
