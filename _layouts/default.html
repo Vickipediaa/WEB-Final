@@ -42,8 +42,11 @@
 
   <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-  <style>{% include style.css %}</style>
+  <style>
+    {% include style.css %}
+  </style>
 </head>
+
 <body>
   <div class="sticky-top" style="background-color:#F5EFE7; ">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -101,9 +104,27 @@
   </div>
 
   <!-- Footer Start -->
-  <footer style="text-align: center;padding: 5px;background-color: #D8C4B6 ;color: #543310">
+  <footer>
     Designed by
-    <a class=" border-bottom" href="#" style="color:#322C2B">輔仁大學資管一甲</a></p>
+    <span style="color:#322C2B">輔仁大學資管一甲</span>。<a data-bs-toggle="collapse" href="#collapseExample"
+      id="collapseExampleButton" role="button" aria-expanded="false" aria-controls="collapseExample">聯絡我們</a></p>
+    <div class="collapse" id="collapseExample">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-12">
+            <div class="card card-body">
+              <ul>
+                <li>242 新北市新莊區中正路510號利瑪竇大樓LM306</li>
+                <li> 大學部秘書TEL：+886-2-2905-2666</li>
+                <li> 碩士班秘書TEL：+886-2-2905-2940</li>
+                <li> 碩職班秘書TEL：+886-2-2905-2626</li>
+                <li> FAX：+886-2-2905-2182</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
   <!-- Footer End -->
 

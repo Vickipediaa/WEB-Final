@@ -94,3 +94,18 @@
     box-shadow: 0 1px 3px black;
     border-radius: 3em 0.5em 0.5em 3em;
 }
+
+footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #D8C4B6;
+    color: #543310;
+
+}
+#collapseExampleButton{
+    color:#543310;
+}
+
+#collapseExampleButton:hover{
+    font-weight: bold;
+}
