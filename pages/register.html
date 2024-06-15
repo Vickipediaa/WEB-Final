@@ -5,114 +5,148 @@ permalink: /register
 ---
 
 <style>
-    /* 基本樣式設定 */
-.container {
-    /*max-width: 800px;*/
-    margin: auto;
-}
+.container-fluid {
+            height: 100%;
+            padding: 0;
+        }
 
-.form-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
+        .content-wrapper {
+            margin: 40px 0; /* 增加上方和下方的間距 */
+        }
 
-.box_tab-link {
-    padding: 10px 20px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #333;
-    border-bottom: 2px solid transparent;
-}
+        .content {
+            height: 700px; /* 固定高度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.box_tab-link.active {
-    border-bottom: 2px solid #800000;
-    color: #800000;
-}
+        #chart_div {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px; /* 增加上方的間距 */
+            height: 700px; /* 固定高度 */
+        }
 
-.tab-content {
-    display: none;
-}
+        .form-container {
+            width: 100%;
+            max-width: 600px; /* 增加最大寬度 */
+            height: 700px; /* 固定高度 */
+            padding: 50px; /* 增加內間距 */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex; /* 新增 */
+            flex-direction: column; /* 新增 */
+            justify-content: space-between; /* 新增 */
+        }
 
-.tab-content.active {
-    display: block;
-}
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
 
+        .box_tab-link {
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 2px solid transparent;
+        }
 
-.form-container {
-    /*max-width: 800px;*/
-    width: 80%;
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+        .box_tab-link.active {
+            border-bottom: 2px solid #800000;
+            color: #800000;
+        }
 
-.form-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
+        .tab-content {
+            display: none;
+        }
 
-.form-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.form-button:hover {
-    background-color: #333;
-}
-
+        .tab-content.active {
+            display: block;
+        }
+        .form-body {
+            flex: 1; /* 新增 */
+            display: flex; /* 新增 */
+            flex-direction: column; /* 新增 */
+            justify-content: center; /* 新增 */
+        }
 </style>
 
-<div class="container">
-    <div class="row align-items-center justify-content-center">
-        <div class="col-md-8">
-            <div id="chart_div" style="width: 100%; height: 725px;"></div>
+
+
+<div class="container-fluid align-items-center justify-content-center">
+    <div class="row align-items-center justify-content-center content-wrapper">
+        <div class="col-md-7">
+            <div class="content" id="chart_div"></div>
         </div>
-        <div class="col-md-4 ">
-            <div class="form-container">
+        <div class="col-md-5">
+            <div class="form-container content">
                 <div class="form-header">
                     <a href="javascript:void(0)" class="box_tab-link active" onclick="openTab(event, 'login')">登入</a>
                     <a href="javascript:void(0)" class="box_tab-link" onclick="openTab(event, 'register')">註冊</a>
                 </div>
-                <div id="login" class="tab-content active " >  <!--d-grid-->
-                    <form action="/login" method="post">
+
+                <div id="login" class="tab-content active "> <!--d-grid-->
+
+                    <form action="/login" method="post" class="form-body"> <!-- 修改 -->
+
                         <label for="login-email">* 電子郵件</label>
-                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
+
+                        <input type="email" id="login-email" name="email" placeholder="@m365.fju.edu.tw"
+                            required><br><br>
+
                         <label for="login-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;</label>
+
                         <input type="password" id="login-password" name="password" required><br><br>
+
                         <div class="form-options">
+
                             <label for="remember-me">
+
                                 <input type="checkbox" id="remember-me" name="remember-me"> 保持登入狀態
+
                             </label><br><br>
+
                             <a href="#" class="forgot-password">忘記密碼？</a>
+
                         </div>
+
                         <button type="submit" class="form-button">登入</button>
+
                     </form>
+
                 </div>
+
                 <div id="register" class="tab-content">
-                    <form action="/register" method="post">
+
+                    <form action="/register" method="post" class="form-body"> <!-- 修改 -->
+
                         <label for="reg-email">* 電子郵件</label>
+
                         <input type="email" id="reg-email" name="email" placeholder="@m365.fju.edu.tw" required><br><br>
+
                         <label for="reg-password">* 密&nbsp;&nbsp;&nbsp;&nbsp;碼&nbsp;&nbsp;&nbsp;</label>
+
                         <input type="password" id="reg-password" name="password" required><br><br>
+
                         <label for="confirm-password">* 確認密碼&nbsp;</label>
+
                         <input type="password" id="confirm-password" name="confirm-password" required><br><br>
+
                         <button type="submit" class="form-button">註冊</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <script type="text/javascript">
@@ -121,29 +155,32 @@ permalink: /register
 
     function drawChart() {
         var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Day');
-        data.addColumn('number', 'product A');
-        data.addColumn('number', 'product B');
+        data.addColumn('number', '次數');
+        data.addColumn('number', 'TissueFAXS分析軟體');
+        data.addColumn('number', '正立螢光顯微鏡');
+        data.addColumn('number', '高階三維重建影像分析軟體');
+        data.addColumn('number', '高階13色流式細胞儀');
+        data.addColumn('number', '雷射共軛焦顯微鏡');
 
         data.addRows([
-            [1, 37.8, 80.8],
-            [2, 30.9, 69.5],
-            [3, 25.4, 57],
-            [4, 11.7, 18.8],
-            [5, 11.9, 17.6],
-            [6, 8.8, 13.6],
-            [7, 7.6, 12.3],
-            [8, 12.3, 29.2],
-            [9, 16.9, 42.9],
-            [10, 12.8, 30.9],
-            [11, 5.3, 7.9],
-            [12, 6.6, 8.4],
+            [1, 17, 20, 16, 14, 17],
+            [2, 10, 19, 13, 14, 19],
+            [3, 25, 17, 17, 15, 9],
+            [4, 11, 18, 16, 17, 13],
+            [5, 11, 17, 17, 25, 28],
+            [6, 8, 13, 12, 17, 14],
+            [7, 7, 12, 19, 14, 27],
+            [8, 12, 9, 15, 28, 22],
+            [9, 16, 12, 16, 12, 29],
+            [10, 12, 10, 26, 24, 26],
+            [11, 5, 13, 17, 15, 28],
+            [12, 6, 14, 18, 23, 27],
         ]);
 
         var options = {
             chart: {
-                title: 'Box Office Earnings in First Two Weeks of Opening',
-                subtitle: 'in millions of dollars (USD)'
+                title: '每月儀器使用統計圖',
+                /*subtitle: 'in millions of dollars (USD)'*/
             },
             axes: {
                 x: {
