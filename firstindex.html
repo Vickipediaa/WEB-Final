@@ -12,52 +12,48 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://kit.fontawesome.com/51eb70003d.js" crossorigin="anonymous"></script>
 
 </head>
 
-<body style="background-color: #f8f9fa;">
+<body style="background-color: #f0f4f9;">
   <!--nav bar start-->
-  <div class="sticky-top" style="background-color:#F5EFE7;">
+  <div class="sticky-top" style="background-color:#F5EFE7; ">
     <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="d-flex justify-content-center">
+        <img class="img-fluid ms-3" src="https://gloria.fju.edu.tw/wp-content/uploads/2021/05/site_icon_1.png"
+          style="width: 50px; height: 50px;">
+      </div>
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color: #543310">輔大貴重儀器預約系統</a>
+        <a class="navbar-brand" href="#"
+          style="color: #543310; font-family: 標楷體; font-weight: bold; font-size:150%; ">輔大貴重儀器預約系統</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" style="color: #543310">首頁</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" style="color: #543310">儀器預約</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false" style="color: #543310">
-                後臺管理系統
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" style="color: #543310">1</a></li>
-                <li><a class="dropdown-item" href="#" style="color: #543310">2</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#" style="color: #543310">儀器查詢</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #543310">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light custom-border-color" type="submit"
-              style="color: #543310">Search</button>
-          </form>
+      </div>
+
+      <i class="fa-regular fa-circle-user me-3 fc-event" data-bs-toggle="modal" data-bs-target="#user"
+        style="font-size:24px;color:#543310"></i>
+        <div class="modal fade" id="user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">使用者資訊</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          使用者帳號：<br>
+          目前為登入狀態，是否要登出並跳回主畫面？
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            onclick="location.href='firstindex'">登出</button><!-- 修改的地方，新增 onclick="location.href='firstindex'" -->
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">留下</button>
         </div>
       </div>
+    </div>
+  </div>
     </nav>
   </div>
 
@@ -70,8 +66,8 @@
         <a href="#notice"><img src="../WEB-Final/pic/2.png"></a>
       </div>
       <div class="row"
-        style="border-radius: 20px; border-color: #213555; border-width: 2px; border-style: solid; padding:20px; margin-bottom: 20px;">
-        <h4 id="steps" >儀器預約步驟</h4>
+        style="border-radius: 20px; border-color:rgb(33, 53, 85,0.8); border-width: 2px; border-style: solid; padding:20px; margin-bottom: 20px; background-color: rgb(248, 249, 250,0.6); box-shadow: 20px 20px gray;">
+        <h4 id="steps">儀器預約步驟：</h4>
         <ol class="mx-5 my-2">
           <li>
             <b>註冊並登入系統</b>
@@ -95,9 +91,9 @@
           </li>
         </ol>
       </div>
-      <div class="row"
-        style="border-radius: 20px; border-color: #213555; border-width: 2px; border-style: solid; padding: 20px; margin-bottom: 20px;">
-        <h4 class="mt-3" id="notice">貴重儀器借用注意事項</h4>
+      <div class="row my-5"
+        style="border-radius: 20px; border-color: rgb(33, 53, 85,0.8); border-width: 2px; border-style: solid; padding: 20px; margin-bottom: 20px;background-color: rgb(248, 249, 250,0.6);box-shadow: 20px 20px gray;">
+        <h4 class="mt-3" id="notice">貴重儀器借用注意事項：</h4>
         <ol class="mx-5 my-2">
           <li>
             <b>了解使用規範與操作手冊</b>
@@ -125,7 +121,22 @@
 
     </div>
   </div>
-  </div>
+
+  <button type="button" id="BackTop" class="toTop-arrow"></button>
+  <script>
+    $(function () {
+      $('#BackTop').click(function () {
+        $('html,body').animate({ scrollTop: 0 }, 333);
+      });
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+          $('#BackTop').fadeIn(222);
+        } else {
+          $('#BackTop').stop().fadeOut(222);
+        }
+      }).scroll();
+    });
+  </script>
 
 
   <!-- Footer Start -->
