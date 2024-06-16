@@ -9,11 +9,12 @@ permalink: /booking
 <div class="container" style="margin:5%">
     <div class="row">
 
-        <div class="col" >
+        <div class="col">
             {% for item in site.data %}
             <center>
-                <div id="{{ item.id }}">  
-                    <img src="{{ item.img }}" style="width:75%;border-radius: 20px; border-color:rgb(33, 53, 85,0.8); border-width: 2px; border-style: solid; padding:20px; margin-bottom: 20px; background-color: rgb(255, 254, 254); box-shadow: 20px 20px gray;">
+                <div id="{{ item.id }}">
+                    <img src="{{ item.img }}"
+                        style="width:75%;border-radius: 20px; border-color:rgb(33, 53, 85,0.8); border-width: 2px; border-style: solid; padding:20px; margin-bottom: 20px; background-color: rgb(255, 254, 254); box-shadow: 20px 20px gray;">
                     <h3 style="margin: 5%;"><b>{{ item.name }}</b></h3>
                 </div>
             </center>
@@ -38,12 +39,13 @@ permalink: /booking
             }
         </script>
 
-        <div class="col" style="border-radius: 20px; border-color:rgb(33, 53, 85,0.8); border-width: 2px; border-style: solid; padding:20px; margin-bottom: 20px; background-color: rgb(255, 254, 254); box-shadow: 20px 20px gray;">
+        <div class="col"
+            style="border-radius: 20px; border-color:rgb(33, 53, 85,0.8); border-width: 2px; border-style: solid; padding:20px; margin-bottom: 20px; background-color: rgb(255, 254, 254); box-shadow: 20px 20px gray;">
             <div class="formbold-main-wrapper">
                 <!-- Author: FormBold Team -->
                 <!-- Learn More: https://formbold.com -->
                 <div class="formbold-form-wrapper">
-                    <form action="../Fancy-Checkout-master/index.html" method="POST">
+                    <form action="../../WEB-Final/Fancy-Checkout-master/index.html" method="POST">
                         <div class="formbold-steps">
                             <ul>
                                 <li class="formbold-step-menu1 active">
@@ -247,7 +249,7 @@ permalink: /booking
                 max-width: 550px;
                 width: 100%;
                 background: #ffffff;
-                
+
             }
 
             .formbold-steps {
@@ -490,17 +492,37 @@ permalink: /booking
                     formBackBtn.classList.remove('active')
                     formSubmitBtn.textContent = 'Submit'
                 } else if (stepMenuThree.className == 'formbold-step-menu3 active') {
-                    document.querySelector('form').submit()
-                    window.location.href = "http://127.0.0.1:4000/indexs";
+                    $('#bookingToast').toast('show');
+
+                    // 提交表單
+                    setTimeout(function () {
+                        document.querySelector('form').submit();
+                        window.location.href = "http://127.0.0.1:4000/index";
+                    }, 3000);
                 }
             })
 
             // 線下付款按鈕
-        $('.formbold-confirm-btn:not(.active)').click(function() {
-            alert("請列印繳費單並完成付款");
-        });
+            $('.formbold-confirm-btn:not(.active)').click(function () {
+                alert("請列印繳費單並完成付款");
+            });
 
 
         </script>
+
+        <div aria-live="polite" aria-atomic="true" style="position: relative;">
+            <div id="bookingToast" class="toast" style="position: absolute; top: 0; right: 0;" data-delay="3000">
+                <div class="toast-header">
+                    <strong class="mr-auto">預約通知</strong>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    預約已完成！
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
