@@ -64,19 +64,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            {% if page.url != "/firstindex" %}
+            {% if page.url != "/WEB-Final/firstindex" %}
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../register"
+              <a class="nav-link active" aria-current="page" href="/WEB-Final/register"
                 style="color: #543310; font-family: 微軟正黑體;">首頁</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../index" style="color: #543310; font-family: 微軟正黑體;">儀器查詢</a>
+              <a class="nav-link" href="/WEB-Final/index" style="color: #543310; font-family: 微軟正黑體;">儀器查詢</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../reservation?item=1" style="color: #543310; font-family: 微軟正黑體;">儀器預約</a>
+              <a class="nav-link" href="/WEB-Final/reservation?item=1" style="color: #543310; font-family: 微軟正黑體;">儀器預約</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../backADMIN" data-bs-toggle="modal" data-bs-target="#back"
+              <a class="nav-link" href="/WEB-Final/backADMIN" data-bs-toggle="modal" data-bs-target="#back"
                 style="color: #543310;font-family: 微軟正黑體;">後臺管理系統</a>
             </li>
             {% endif %}
@@ -91,7 +91,7 @@
 
       </div>
       <!-- Button trigger modal -->
-      <i class="fa-regular fa-circle-user me-3 fc-event" data-bs-toggle="modal" data-bs-target="{% if page.url != "/firstindex" %}#user{% else %}#registerModal{% endif %}"
+      <i class="fa-regular fa-circle-user me-3 fc-event" data-bs-toggle="modal" data-bs-target="{% if page.url != "/WEB-Final/firstindex" %}#user{% else %}#registerModal{% endif %}"
         style="font-size:24px;color:#543310"></i>
     </nav>
   </div>
@@ -143,7 +143,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">離開</button>
-          <button type="button" class="btn btn-primary" onclick="location.href='../backADMIN'" >登入</button>
+          <button type="button" class="btn btn-primary" onclick="location.href='/WEB-Final/backADMIN'" >登入</button>
         </div>
       </div>
     </div>
@@ -180,7 +180,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
             onclick="location.href='firstindex'">離開</button><!-- 修改的地方，新增 onclick="location.href='firstindex'" -->
-          <a href="/register" type="button" class="btn btn-primary">登入</a>
+          <a href="/WEB-Final/register" type="button" class="btn btn-primary">登入</a>
         </div>
       </div>
     </div>
