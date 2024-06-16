@@ -5,12 +5,7 @@ permalink: /reservation/
 ---
 
 <div class="container">
-    <select id="itemSelect" style="color: #543310;">
-        <option style="color: #111111;">尋找儀器</option>
-        {% for item in site.data %}
-        <option style="color: #111111;" data-category="{{ item.category }}">{{ item.name }}</option>
-        {% endfor %}
-      </select>
+    
     <div class="row"style="margin:50px 0 50px 0 ;">
         <div class="col" >
             {% for item in site.data %}
